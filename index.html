@@ -1714,14 +1714,6 @@
   }, { threshold: 0.5 });
   document.querySelectorAll('.counter-value').forEach(el => counterObserver.observe(el));
 
-  // Hero parallax
-  const heroBg = document.getElementById('heroBg');
-  window.addEventListener('scroll', () => {
-    const scrolled = window.scrollY;
-    if (scrolled < window.innerHeight) {
-      heroBg.style.transform = `translateY(${scrolled * 0.4}px) scale(1.1)`;
-    }
-  });
 
   // Back to top
   const backToTop = document.getElementById('backToTop');
