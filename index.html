@@ -163,7 +163,31 @@
   .marquee-container:hover .marquee-track {
     animation-play-state: paused;
   }
+.nav-link {
+    font-size: 0.8125rem;
+}
 
+/* If you want to keep the same logo wrapper name, just override size */
+.logo-img-wrapper {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(244, 185, 66, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.group:hover .logo-img-wrapper {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(244, 185, 66, 0.5);
+}
   .partner-logo {
     filter: grayscale(100%);
     opacity: 0.55;
