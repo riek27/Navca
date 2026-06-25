@@ -27,8 +27,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com">
-    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -68,59 +67,28 @@
                         'fade-in': 'fadeIn 1s ease-out forwards',
                         'float': 'float 6s ease-in-out infinite',
                         'pulse-soft': 'pulseSoft 3s ease-in-out infinite',
-                        'blink': 'blink 0.8s step-end infinite',
                         'shimmer': 'shimmer 2.5s ease-in-out infinite',
                     },
                     keyframes: {
                         fadeUp: {
-                            '0%': {
-                                opacity: '0',
-                                transform: 'translateY(30px)'
-                            },
-                            '100%': {
-                                opacity: '1',
-                                transform: 'translateY(0)'
-                            },
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
                         },
                         fadeIn: {
-                            '0%': {
-                                opacity: '0'
-                            },
-                            '100%': {
-                                opacity: '1'
-                            },
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
                         },
                         float: {
-                            '0%, 100%': {
-                                transform: 'translateY(0px)'
-                            },
-                            '50%': {
-                                transform: 'translateY(-20px)'
-                            },
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
                         },
                         pulseSoft: {
-                            '0%, 100%': {
-                                opacity: '1'
-                            },
-                            '50%': {
-                                opacity: '0.7'
-                            },
-                        },
-                        blink: {
-                            '0%, 100%': {
-                                opacity: '1'
-                            },
-                            '50%': {
-                                opacity: '0'
-                            },
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0.7' },
                         },
                         shimmer: {
-                            '0%': {
-                                backgroundPosition: '-200% 0'
-                            },
-                            '100%': {
-                                backgroundPosition: '200% 0'
-                            },
+                            '0%': { backgroundPosition: '-200% 0' },
+                            '100%': { backgroundPosition: '200% 0' },
                         },
                     },
                 }
@@ -129,57 +97,31 @@
     </script>
 
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', sans-serif;
             color: #222;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
-        .font-serif {
-            font-family: 'Playfair Display', serif;
-        }
+        .font-serif { font-family: 'Playfair Display', serif; }
 
         .reveal {
             opacity: 0;
             transform: translateY(40px);
             transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1);
         }
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .reveal-delay-1 {
-            transition-delay: 0.1s;
-        }
-        .reveal-delay-2 {
-            transition-delay: 0.2s;
-        }
-        .reveal-delay-3 {
-            transition-delay: 0.3s;
-        }
-        .reveal-delay-4 {
-            transition-delay: 0.4s;
-        }
-        .reveal-delay-5 {
-            transition-delay: 0.5s;
-        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+        .reveal-delay-5 { transition-delay: 0.5s; }
 
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f5f5f5;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #0B1F3A;
-            border-radius: 5px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #2E7D32;
-        }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #f5f5f5; }
+        ::-webkit-scrollbar-thumb { background: #0B1F3A; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #2E7D32; }
 
         .glass {
             background: rgba(255, 255, 255, 0.08);
@@ -202,23 +144,16 @@
             box-shadow: 0 25px 50px -12px rgba(11, 31, 58, 0.25);
         }
 
-        .btn-shine {
-            position: relative;
-            overflow: hidden;
-        }
+        .btn-shine { position: relative; overflow: hidden; }
         .btn-shine::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
             transition: left 0.6s;
         }
-        .btn-shine:hover::before {
-            left: 100%;
-        }
+        .btn-shine:hover::before { left: 100%; }
 
         .blob {
             position: absolute;
@@ -228,26 +163,25 @@
             pointer-events: none;
         }
 
+        /* Navbar link styles consistent with index */
         .nav-link {
+            font-size: 0.75rem;
             position: relative;
         }
         .nav-link::after {
             content: '';
             position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
+            bottom: -4px; left: 0;
+            width: 0; height: 2px;
             background: #F4B942;
             transition: width 0.3s ease;
         }
-        .nav-link:hover::after {
-            width: 100%;
-        }
+        .nav-link:hover::after { width: 100%; }
+        .nav-link.active::after { width: 100%; background: #F4B942; }
+        .nav-link.active { color: #F4B942; }
 
         .section-divider {
-            width: 60px;
-            height: 3px;
+            width: 60px; height: 3px;
             background: linear-gradient(90deg, #F4B942, #2E7D32);
             border-radius: 2px;
         }
@@ -256,37 +190,7 @@
             transform: translateX(100%);
             transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
         }
-        .mobile-menu.open {
-            transform: translateX(0);
-        }
-
-        .loader {
-            position: fixed;
-            inset: 0;
-            background: #0B1F3A;
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: opacity 0.6s, visibility 0.6s;
-        }
-        .loader.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-        .loader-ring {
-            width: 60px;
-            height: 60px;
-            border: 3px solid rgba(244, 185, 66, 0.2);
-            border-top-color: #F4B942;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
+        .mobile-menu.open { transform: translateX(0); }
 
         .logo-img-wrapper {
             width: 48px;
@@ -382,22 +286,13 @@
                 radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
         }
 
-        .whatsapp-pulse {
-            animation: whatsappPulse 2s infinite;
-        }
+        .whatsapp-pulse { animation: whatsappPulse 2s infinite; }
         @keyframes whatsappPulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
-            }
-            70% {
-                box-shadow: 0 0 0 20px rgba(37, 211, 102, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-            }
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
-        /* Footer logo placeholder */
         .footer-logo-circle {
             width: 48px;
             height: 48px;
@@ -413,13 +308,8 @@
 
 <body class="bg-white">
 
-    <!-- Loader -->
-    <div class="loader" id="loader">
-        <div class="loader-ring"></div>
-    </div>
-
-    <!-- NAVBAR -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md py-3 transition-all duration-500">
+    <!-- NAVBAR (refined) -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm py-2.5 transition-all duration-500">
         <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-3 group">
                 <div class="logo-img-wrapper">
@@ -431,20 +321,21 @@
                 </div>
             </a>
 
-            <div class="hidden lg:flex items-center gap-8">
-                <a href="index.html" class="nav-link text-sm font-medium text-navy-700 transition-colors hover:text-gold-500">Home</a>
-                <a href="about.html" class="nav-link text-sm font-medium text-navy-700 transition-colors hover:text-gold-500">About Us</a>
-                <a href="programs.html" class="nav-link text-sm font-medium text-navy-700 transition-colors hover:text-gold-500">Programs</a>
-                <a href="achievements.html" class="nav-link text-sm font-medium text-navy-700 transition-colors hover:text-gold-500">Achievements</a>
-                <a href="gallery.html" class="nav-link text-sm font-medium text-navy-700 transition-colors hover:text-gold-500">Gallery</a>
-                <a href="impact.html" class="nav-link text-sm font-medium text-navy-700 transition-colors hover:text-gold-500">Impact</a>
-                <a href="news.html" class="nav-link text-sm font-medium text-navy-700 transition-colors hover:text-gold-500">News</a>
-                <a href="involved.html" class="nav-link text-sm font-medium text-navy-700 transition-colors hover:text-gold-500">Get Involved</a>
-                <a href="donate.html" class="nav-link text-sm font-bold text-gold-500 transition-colors hover:text-gold-600">Donate</a>
-                <a href="contact.html" class="nav-link text-sm font-medium text-navy-700 transition-colors hover:text-gold-500">Contact</a>
+            <div class="hidden lg:flex items-center gap-5">
+                <a href="index.html" class="nav-link font-medium text-navy-700 transition-colors hover:text-gold-500">Home</a>
+                <a href="about.html" class="nav-link font-medium text-navy-700 transition-colors hover:text-gold-500">About</a>
+                <a href="programs.html" class="nav-link font-medium text-navy-700 transition-colors hover:text-gold-500">Programs</a>
+                <a href="achievements.html" class="nav-link font-medium text-navy-700 transition-colors hover:text-gold-500">Achievements</a>
+                <a href="gallery.html" class="nav-link font-medium text-navy-700 transition-colors hover:text-gold-500">Gallery</a>
+                <a href="impact.html" class="nav-link font-medium text-navy-700 transition-colors hover:text-gold-500">Impact</a>
+                <a href="partnerships.html" class="nav-link font-medium text-navy-700 transition-colors hover:text-gold-500">Partners</a>
+                <a href="news.html" class="nav-link font-medium text-navy-700 transition-colors hover:text-gold-500">News</a>
+                <a href="involved.html" class="nav-link font-medium text-navy-700 transition-colors hover:text-gold-500">Get Involved</a>
+                <a href="donate.html" class="nav-link active font-medium text-gold-500 transition-colors">Donate</a>
+                <a href="contact.html" class="nav-link font-medium text-navy-700 transition-colors hover:text-gold-500">Contact</a>
             </div>
 
-            <a href="donate.html" class="hidden lg:inline-flex items-center gap-2 px-6 py-3 bg-gold-500 hover:bg-gold-600 text-navy-700 font-semibold text-sm rounded-full transition-all shadow-lg shadow-gold-500/30 btn-shine">
+            <a href="donate.html" class="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 bg-gold-500 hover:bg-gold-600 text-navy-700 font-semibold text-sm rounded-full transition-all shadow-md shadow-gold-500/30 btn-shine">
                 Donate Now
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
             </a>
@@ -465,11 +356,12 @@
         </div>
         <nav class="flex flex-col gap-6">
             <a href="index.html" class="mobile-link text-white text-lg font-medium hover:text-gold-500 transition-colors">Home</a>
-            <a href="about.html" class="mobile-link text-white text-lg font-medium hover:text-gold-500 transition-colors">About Us</a>
+            <a href="about.html" class="mobile-link text-white text-lg font-medium hover:text-gold-500 transition-colors">About</a>
             <a href="programs.html" class="mobile-link text-white text-lg font-medium hover:text-gold-500 transition-colors">Programs</a>
             <a href="achievements.html" class="mobile-link text-white text-lg font-medium hover:text-gold-500 transition-colors">Achievements</a>
             <a href="gallery.html" class="mobile-link text-white text-lg font-medium hover:text-gold-500 transition-colors">Gallery</a>
             <a href="impact.html" class="mobile-link text-white text-lg font-medium hover:text-gold-500 transition-colors">Impact</a>
+            <a href="partnerships.html" class="mobile-link text-white text-lg font-medium hover:text-gold-500 transition-colors">Partners</a>
             <a href="news.html" class="mobile-link text-white text-lg font-medium hover:text-gold-500 transition-colors">News</a>
             <a href="involved.html" class="mobile-link text-white text-lg font-medium hover:text-gold-500 transition-colors">Get Involved</a>
             <a href="donate.html" class="mobile-link text-gold-500 text-lg font-bold hover:text-gold-400 transition-colors">Donate</a>
@@ -478,9 +370,7 @@
         <a href="donate.html" class="mt-10 inline-flex items-center justify-center gap-2 px-6 py-3 bg-gold-500 text-navy-700 font-semibold rounded-full">Donate Now</a>
     </div>
 
-    <!-- ============================================ -->
-    <!-- SECTION 1: DONATE HERO -->
-    <!-- ============================================ -->
+    <!-- ========== DONATE HERO ========== -->
     <section class="relative min-h-[75vh] flex items-center justify-center overflow-hidden pt-20">
         <div class="absolute inset-0">
             <img src="assets/navca1.jpeg" alt="Community support in South Sudan" class="w-full h-full object-cover" />
@@ -513,9 +403,7 @@
         </div>
     </section>
 
-    <!-- ============================================ -->
-    <!-- SECTION 2: BANK DETAILS CARD -->
-    <!-- ============================================ -->
+    <!-- ========== BANK DETAILS ========== -->
     <section id="bank-details" class="py-20 lg:py-28 bg-white relative overflow-hidden">
         <div class="blob bg-gold-500 w-72 h-72 -top-32 right-0 animate-float opacity-8" style="opacity: 0.06;"></div>
         <div class="blob bg-forest-600 w-64 h-64 bottom-0 -left-20 animate-float opacity-6" style="opacity: 0.05; animation-delay: 3s;"></div>
@@ -533,12 +421,10 @@
             <!-- Main Bank Card -->
             <div class="shimmer-border relative rounded-2xl reveal reveal-delay-1">
                 <div class="relative bg-navy-700 rounded-2xl p-8 md:p-12 bank-card-pattern overflow-hidden">
-                    <!-- Decorative elements -->
                     <div class="absolute top-0 right-0 w-48 h-48 bg-gold-500/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
                     <div class="absolute bottom-0 left-0 w-36 h-36 bg-forest-600/8 rounded-full translate-y-1/2 -translate-x-1/2"></div>
 
                     <div class="relative z-10">
-                        <!-- Bank Header -->
                         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-10">
                             <div class="flex items-center gap-4">
                                 <div class="w-14 h-14 rounded-2xl bg-gold-500/15 flex items-center justify-center">
@@ -558,9 +444,7 @@
                             </span>
                         </div>
 
-                        <!-- Account Details Grid -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                            <!-- Account Name -->
                             <div class="bg-white/5 rounded-xl p-5 border border-white/8 hover:border-gold-500/30 transition-all duration-400">
                                 <span class="text-white/50 text-xs tracking-widest uppercase block mb-2">Account Name</span>
                                 <div class="flex items-center justify-between gap-3">
@@ -572,7 +456,6 @@
                                 </div>
                             </div>
 
-                            <!-- Account Number -->
                             <div class="bg-white/5 rounded-xl p-5 border border-white/8 hover:border-gold-500/30 transition-all duration-400">
                                 <span class="text-white/50 text-xs tracking-widest uppercase block mb-2">Account Number</span>
                                 <div class="flex items-center justify-between gap-3">
@@ -584,7 +467,6 @@
                                 </div>
                             </div>
 
-                            <!-- Currency -->
                             <div class="bg-white/5 rounded-xl p-5 border border-white/8 hover:border-gold-500/30 transition-all duration-400">
                                 <span class="text-white/50 text-xs tracking-widest uppercase block mb-2">Currency</span>
                                 <div class="flex items-center gap-3">
@@ -593,28 +475,25 @@
                                 </div>
                             </div>
 
-                            <!-- SWIFT Code Note -->
                             <div class="bg-white/5 rounded-xl p-5 border border-white/8 hover:border-gold-500/30 transition-all duration-400">
                                 <span class="text-white/50 text-xs tracking-widest uppercase block mb-2">SWIFT Code</span>
                                 <p class="text-white/80 text-sm leading-relaxed">
-                                    Available upon request. Please email us at <a href="mailto:vulnerabilityconcemationwide@gmail.com" class="text-gold-400 hover:text-gold-300 underline underline-offset-2 transition-colors">vulnerabilityconcemationwide@gmail.com</a>
+                                    Available upon request. Please email us at <a href="mailto:info@navca-ss.org" class="text-gold-400 hover:text-gold-300 underline underline-offset-2 transition-colors">info@navca-ss.org</a>
                                 </p>
                             </div>
                         </div>
 
-                        <!-- Reference -->
                         <div class="bg-white/5 rounded-xl p-5 border border-white/8 mb-6">
                             <span class="text-white/50 text-xs tracking-widest uppercase block mb-2">Reference (Optional)</span>
                             <p class="text-white/80 text-sm">Please include <span class="text-gold-400 font-semibold">"NAVCA-DONATION"</span> in the transfer reference if possible.</p>
                         </div>
 
-                        <!-- Notice -->
                         <div class="bg-gold-500/8 border border-gold-500/20 rounded-xl p-5 flex items-start gap-4">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gold-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
                             <div>
                                 <p class="text-white font-semibold mb-1">After Making Your Transfer</p>
                                 <p class="text-white/75 text-sm leading-relaxed">
-                                    Please email us at <a href="mailto:vulnerabilityconcemationwide@gmail.com" class="text-gold-400 hover:text-gold-300 underline underline-offset-2 transition-colors">vulnerabilityconcemationwide@gmail.com</a> or call <a href="tel:+211923681537" class="text-gold-400 hover:text-gold-300 underline underline-offset-2 transition-colors">+211 923 681 537</a> so we can confirm receipt and send you an acknowledgment.
+                                    Please email us at <a href="mailto:info@navca-ss.org" class="text-gold-400 hover:text-gold-300 underline underline-offset-2 transition-colors">info@navca-ss.org</a> or call <a href="tel:+211923681537" class="text-gold-400 hover:text-gold-300 underline underline-offset-2 transition-colors">+211 923 681 537</a> so we can confirm receipt and send you an acknowledgment.
                                 </p>
                             </div>
                         </div>
@@ -622,9 +501,8 @@
                 </div>
             </div>
 
-            <!-- Quick Contact Row -->
             <div class="flex flex-wrap justify-center gap-6 mt-10 reveal reveal-delay-2">
-                <a href="mailto:vulnerabilityconcemationwide@gmail.com" class="inline-flex items-center gap-2 px-6 py-3 bg-navy-50 hover:bg-navy-100 text-navy-700 font-medium rounded-full transition-all card-lift text-sm">
+                <a href="mailto:info@navca-ss.org" class="inline-flex items-center gap-2 px-6 py-3 bg-navy-50 hover:bg-navy-100 text-navy-700 font-medium rounded-full transition-all card-lift text-sm">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-navy-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                     Email Us
                 </a>
@@ -640,9 +518,7 @@
         </div>
     </section>
 
-    <!-- ============================================ -->
-    <!-- SECTION 3: WHY YOUR DONATION MATTERS -->
-    <!-- ============================================ -->
+    <!-- ========== WHY YOUR DONATION MATTERS ========== -->
     <section class="py-20 lg:py-28 bg-navy-50 relative overflow-hidden">
         <div class="blob bg-gold-500 w-80 h-80 top-0 -right-24 animate-float opacity-10" style="opacity: 0.08;"></div>
         <div class="max-w-6xl mx-auto px-6 lg:px-10 relative z-10">
@@ -704,9 +580,7 @@
         </div>
     </section>
 
-    <!-- ============================================ -->
-    <!-- SECTION 4: TRUST & TRANSPARENCY BADGE -->
-    <!-- ============================================ -->
+    <!-- ========== TRUST & TRANSPARENCY ========== -->
     <section class="py-16 bg-white">
         <div class="max-w-4xl mx-auto px-6 lg:px-10 text-center reveal">
             <div class="inline-flex items-center gap-3 px-6 py-4 bg-navy-50 rounded-2xl border border-navy-100/50">
@@ -724,9 +598,7 @@
         </div>
     </section>
 
-    <!-- ============================================ -->
-    <!-- SECTION 5: CTA BANNER -->
-    <!-- ============================================ -->
+    <!-- ========== CTA BANNER ========== -->
     <section class="py-20 lg:py-24 bg-navy-700 relative overflow-hidden">
         <div class="blob bg-gold-500 w-96 h-96 -top-32 -right-32 animate-float opacity-10" style="opacity: 0.07;"></div>
         <div class="blob bg-forest-600 w-80 h-80 bottom-0 left-0 animate-float opacity-8" style="opacity: 0.05; animation-delay: 2.5s;"></div>
@@ -747,9 +619,7 @@
         </div>
     </section>
 
-    <!-- ============================================ -->
-    <!-- FOOTER (matching your provided design) -->
-    <!-- ============================================ -->
+    <!-- ========== FOOTER ========== -->
     <footer class="bg-navy-800 text-white relative overflow-hidden">
         <div class="border-b border-white/10">
             <div class="max-w-7xl mx-auto px-6 lg:px-10 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
@@ -816,7 +686,7 @@
                         <svg class="w-4 h-4 mt-0.5 text-gold-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                         </svg>
-                        <a href="mailto:info@vulnerabilityconcemationwide.org" class="hover:text-gold-500 transition-colors break-all">info@vulnerabilityconcemationwide.org</a>
+                        <a href="mailto:info@navca-ss.org" class="hover:text-gold-500 transition-colors break-all">info@navca-ss.org</a>
                     </li>
                 </ul>
             </div>
@@ -842,11 +712,16 @@
 
     <!-- Scripts -->
     <script>
-        // Loader
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                document.getElementById('loader').classList.add('hidden');
-            }, 400);
+        // Navbar scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) {
+                navbar.classList.add('shadow-lg', 'py-2');
+                navbar.classList.remove('py-2.5');
+            } else {
+                navbar.classList.remove('shadow-lg', 'py-2');
+                navbar.classList.add('py-2.5');
+            }
         });
 
         // Mobile Menu
@@ -926,19 +801,10 @@
         backToTopBtn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-
-        // Navbar shadow adjustment
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            if (currentScroll > 80) {
-                navbar.classList.add('shadow-lg');
-                navbar.classList.remove('shadow-md');
-            } else {
-                navbar.classList.add('shadow-md');
-                navbar.classList.remove('shadow-lg');
-            }
-        });
     </script>
 </body>
 </html>
+
+
+
+
