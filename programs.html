@@ -184,25 +184,23 @@
         }
 
         .logo-img-wrapper {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(244, 185, 66, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.nav-logo-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.group:hover .logo-img-wrapper {
-    transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(244, 185, 66, 0.5);
-}
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(244, 185, 66, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .nav-logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .group:hover .logo-img-wrapper {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(244, 185, 66, 0.5);
+        }
 
         .section-divider {
             width: 60px;
@@ -224,6 +222,7 @@
         }
 
         .nav-link {
+            font-size: 0.75rem;
             position: relative;
         }
         .nav-link::after {
@@ -260,26 +259,6 @@
             box-shadow: 0 30px 60px -15px rgba(11, 31, 58, 0.25);
         }
 
-        .loader {
-            position: fixed;
-            inset: 0;
-            background: #0B1F3A;
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: opacity 0.6s, visibility 0.6s;
-        }
-        .loader.hidden { opacity: 0; visibility: hidden; }
-        .loader-ring {
-            width: 60px; height: 60px;
-            border: 3px solid rgba(244, 185, 66, 0.2);
-            border-top-color: #F4B942;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin { to { transform: rotate(360deg); } }
-
         .img-zoom { overflow: hidden; }
         .img-zoom img {
             transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
@@ -288,39 +267,36 @@
     </style>
 </head>
 <body class="bg-white">
-<!-- Loader -->
-<div class="loader" id="loader"><div class="loader-ring"></div></div>
 
-<!-- NAVBAR -->
-<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md py-3 transition-all duration-500">
+<!-- NAVBAR (refined to match index.html) -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm py-2.5 transition-all duration-500">
     <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between">
         <a href="index.html" class="flex items-center gap-3 group">
-    <div class="logo-img-wrapper">
-        <img src="assets/navcalogo.png" alt="NAVCA Logo" class="nav-logo-img" />
-    </div>
-    <div class="flex flex-col leading-tight">
-        <span class="font-serif font-bold text-lg text-navy-700 transition-colors">NAVCA</span>
-        <span class="text-[10px] tracking-widest text-navy-600/70 transition-colors uppercase">South Sudan</span>
-    </div>
-</a>
-        <div class="hidden lg:flex items-center gap-8">
-            <a href="index.html" class="nav-link text-sm font-medium text-navy-700 hover:text-gold-500">Home</a>
-            <a href="about.html" class="nav-link text-sm font-medium text-navy-700 hover:text-gold-500">About Us</a>
-            <a href="programs.html" class="nav-link active text-sm font-medium text-gold-500">Programs</a>
-            <a href="achievements.html" class="nav-link text-sm font-medium text-navy-700 hover:text-gold-500">Achievements</a>
-            <a href="gallery.html" class="nav-link text-sm font-medium text-navy-700 hover:text-gold-500">Gallery</a>
-            <a href="impact.html" class="nav-link text-sm font-medium text-navy-700 hover:text-gold-500">Impact</a>
-            <a href="news.html" class="nav-link text-sm font-medium text-navy-700 hover:text-gold-500">News</a>
-            <a href="involved.html" class="nav-link text-sm font-medium text-navy-700 hover:text-gold-500">Get Involved</a>
-             <a href="donate.html" class="nav-link text-sm font-medium text-navy-700 transition-colors hover:text-gold-500">Donate</a>
-            <a href="contact.html" class="nav-link text-sm font-medium text-navy-700 hover:text-gold-500">Contact</a>
+            <div class="logo-img-wrapper">
+                <img src="assets/navcalogo.png" alt="NAVCA Logo" class="nav-logo-img" />
+            </div>
+            <div class="flex flex-col leading-tight">
+                <span class="font-serif font-bold text-lg text-navy-700 transition-colors">NAVCA</span>
+                <span class="text-[10px] tracking-widest text-navy-600/70 transition-colors uppercase">South Sudan</span>
+            </div>
+        </a>
+        <div class="hidden lg:flex items-center gap-5">
+            <a href="index.html" class="nav-link font-medium text-navy-700 transition-colors hover:text-gold-500">Home</a>
+            <a href="about.html" class="nav-link font-medium text-navy-700 transition-colors hover:text-gold-500">About</a>
+            <a href="programs.html" class="nav-link active font-medium text-gold-500 transition-colors">Programs</a>
+            <a href="achievements.html" class="nav-link font-medium text-navy-700 transition-colors hover:text-gold-500">Achievements</a>
+            <a href="gallery.html" class="nav-link font-medium text-navy-700 transition-colors hover:text-gold-500">Gallery</a>
+            <a href="impact.html" class="nav-link font-medium text-navy-700 transition-colors hover:text-gold-500">Impact</a>
+            <a href="partnerships.html" class="nav-link font-medium text-navy-700 transition-colors hover:text-gold-500">Partners</a>
+            <a href="news.html" class="nav-link font-medium text-navy-700 transition-colors hover:text-gold-500">News</a>
+            <a href="involved.html" class="nav-link font-medium text-navy-700 transition-colors hover:text-gold-500">Get Involved</a>
+            <a href="donate.html" class="nav-link font-medium text-navy-700 transition-colors hover:text-gold-500">Donate</a>
+            <a href="contact.html" class="nav-link font-medium text-navy-700 transition-colors hover:text-gold-500">Contact</a>
         </div>
-
-        <a href="involved.html" class="hidden lg:inline-flex items-center gap-2 px-6 py-3 bg-gold-500 hover:bg-gold-600 text-navy-700 font-semibold text-sm rounded-full transition-all shadow-lg shadow-gold-500/30 btn-shine">
+        <a href="involved.html" class="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 bg-gold-500 hover:bg-gold-600 text-navy-700 font-semibold text-sm rounded-full transition-all shadow-md shadow-gold-500/30 btn-shine">
             Donate Now
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
-
         <button id="menuBtn" class="lg:hidden text-navy-700 p-2" aria-label="Toggle menu">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
@@ -337,14 +313,15 @@
     </div>
     <nav class="flex flex-col gap-6">
         <a href="index.html" class="mobile-link text-white text-lg font-medium hover:text-gold-500 transition-colors">Home</a>
-        <a href="about.html" class="mobile-link text-white text-lg font-medium hover:text-gold-500 transition-colors">About Us</a>
+        <a href="about.html" class="mobile-link text-white text-lg font-medium hover:text-gold-500 transition-colors">About</a>
         <a href="programs.html" class="mobile-link text-gold-500 text-lg font-medium transition-colors">Programs</a>
         <a href="achievements.html" class="mobile-link text-white text-lg font-medium hover:text-gold-500 transition-colors">Achievements</a>
         <a href="gallery.html" class="mobile-link text-white text-lg font-medium hover:text-gold-500 transition-colors">Gallery</a>
         <a href="impact.html" class="mobile-link text-white text-lg font-medium hover:text-gold-500 transition-colors">Impact</a>
+        <a href="partnerships.html" class="mobile-link text-white text-lg font-medium hover:text-gold-500 transition-colors">Partners</a>
         <a href="news.html" class="mobile-link text-white text-lg font-medium hover:text-gold-500 transition-colors">News</a>
         <a href="involved.html" class="mobile-link text-white text-lg font-medium hover:text-gold-500 transition-colors">Get Involved</a>
-         <a href="donate.html" class="nav-link text-sm font-medium text-navy-700 transition-colors hover:text-gold-500">Donate</a>
+        <a href="donate.html" class="mobile-link text-white text-lg font-medium hover:text-gold-500 transition-colors">Donate</a>
         <a href="contact.html" class="mobile-link text-white text-lg font-medium hover:text-gold-500 transition-colors">Contact</a>
     </nav>
     <a href="involved.html" class="mt-10 inline-flex items-center justify-center gap-2 px-6 py-3 bg-gold-500 text-navy-700 font-semibold rounded-full">Donate Now</a>
@@ -883,7 +860,7 @@
             <ul class="space-y-3 text-sm text-white/70">
                 <li class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 text-gold-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg><span>c/o Jebel - Juba, South Sudan</span></li>
                 <li class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 text-gold-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg><span>+211 923 681 537 / +211 926 136 052 / +211 916 638 032</span></li>
-                <li class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 text-gold-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><div><a href="mailto:info@vulnerabilityconcemationwide.org" class="hover:text-gold-500 transition-colors break-all">info@vulnerabilityconcemationwide.org</a></div></li>
+                <li class="flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 text-gold-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><div><a href="mailto:info@navca-ss.org" class="hover:text-gold-500 transition-colors break-all">info@navca-ss.org</a></div></li>
             </ul>
         </div>
     </div>
@@ -906,16 +883,16 @@
 </button>
 
 <script>
-    window.addEventListener('load', () => {
-        setTimeout(() => document.getElementById('loader').classList.add('hidden'), 400);
-    });
-
     // Navbar scroll
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
-        navbar.classList.toggle('shadow-lg', window.scrollY > 80);
-        navbar.classList.toggle('py-2', window.scrollY > 80);
-        navbar.classList.toggle('py-3', window.scrollY <= 80);
+        if (window.scrollY > 80) {
+            navbar.classList.add('shadow-lg', 'py-2');
+            navbar.classList.remove('py-2.5');
+        } else {
+            navbar.classList.remove('shadow-lg', 'py-2');
+            navbar.classList.add('py-2.5');
+        }
     });
 
     // Mobile menu
@@ -974,3 +951,7 @@
 </script>
 </body>
 </html>
+
+
+
+
