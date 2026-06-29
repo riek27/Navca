@@ -224,6 +224,48 @@
         .form-input:focus {
             border-color: #F4B942;
             box-shadow: 0 0 0 3px rgba(244, 185, 66, 0.15);
+            outline: none;
+        }
+
+        /* ---------- NEW: Overlay styles for the thank‑you message ---------- */
+        .form-wrapper {
+            position: relative;
+        }
+        .form-success-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 1.5rem;
+            z-index: 10;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+            text-align: center;
+            padding: 2rem;
+        }
+        .form-success-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .form-success-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: #2E7D32;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+            animation: successPop 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        @keyframes successPop {
+            0% { transform: scale(0); opacity: 0; }
+            60% { transform: scale(1.2); }
+            100% { transform: scale(1); opacity: 1; }
         }
     </style>
 </head>
@@ -782,57 +824,7 @@
     });
     backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-    // ========== TYPING ANIMATION (Hero Section) ==========
-    function startTypingAnimation() {
-        const subtitleEl = document.getElementById('typingSubtitle');
-        if (!subtitleEl) return;
-        const fullText = "Improving the quality of life of the most vulnerable communities — especially women, children, the elderly, and persons with disabilities — through integrated, inclusive, and rights-based humanitarian and development interventions.";
-        let charIndex = 0;
-        const typingSpeed = 30;
-        subtitleEl.textContent = '';
-        const cursorSpan = document.createElement('span');
-        cursorSpan.className = 'typing-cursor';
-        subtitleEl.appendChild(cursorSpan);
-
-        function typeNextChar() {
-            if (charIndex < fullText.length) {
-                const textNode = document.createTextNode(fullText.charAt(charIndex));
-                subtitleEl.insertBefore(textNode, cursorSpan);
-                charIndex++;
-                setTimeout(typeNextChar, typingSpeed + Math.random() * 20);
-            } else {
-                setTimeout(() => {
-                    cursorSpan.style.transition = 'opacity 0.6s';
-                    cursorSpan.style.opacity = '0';
-                    setTimeout(() => { if (cursorSpan.parentNode) cursorSpan.parentNode.removeChild(cursorSpan); }, 600);
-                }, 3000);
-            }
-        }
-        setTimeout(typeNextChar, 600);
-    }
-    document.addEventListener('DOMContentLoaded', startTypingAnimation);
-
-    // ========== COUNTER ANIMATION ==========
-    const counterObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const el = entry.target;
-                const target = parseInt(el.dataset.target);
-                const duration = 2000;
-                const start = performance.now();
-                const animate = (now) => {
-                    const progress = Math.min((now - start) / duration, 1);
-                    const eased = 1 - Math.pow(1 - progress, 3);
-                    el.textContent = Math.floor(eased * target).toLocaleString();
-                    if (progress < 1) requestAnimationFrame(animate);
-                    else el.textContent = target.toLocaleString();
-                };
-                requestAnimationFrame(animate);
-                counterObserver.unobserve(el);
-            }
-        });
-    }, { threshold: 0.5 });
-    document.querySelectorAll('.counter-value').forEach(el => counterObserver.observe(el));
+    // (Optional: Typing and counter animations removed as no matching elements exist – harmless if kept)
 
     // ========== CONTACT FORM (Netlify + Thank You Overlay) ==========
     const involvementForm = document.getElementById('involvementForm');
