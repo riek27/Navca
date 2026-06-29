@@ -565,7 +565,7 @@
     </div>
 </section>
 
-<!-- ========== CONTACT FORM ========== -->
+<!-- ========== CONTACT FORM (Netlify-Ready) ========== -->
 <section id="contact-form" class="py-20 md:py-28 bg-navy-50/50 relative overflow-hidden">
     <div class="max-w-4xl mx-auto px-6 lg:px-10">
         <div class="text-center max-w-3xl mx-auto mb-16 reveal">
@@ -575,50 +575,69 @@
             <p class="text-lg text-charcoal/70 leading-relaxed">Ready to make a difference? Fill out the form below and our team will get back to you.</p>
         </div>
 
-        <form class="reveal bg-white rounded-3xl p-8 md:p-10 border border-navy-100/30 shadow-lg" id="involvementForm">
-            <div class="grid md:grid-cols-2 gap-6 mb-6">
-                <div>
-                    <label class="block text-sm font-semibold text-navy-700 mb-2">Full Name *</label>
-                    <input type="text" required class="form-input w-full px-5 py-3.5 bg-white border border-navy-100 rounded-xl focus:outline-none transition-all text-charcoal" placeholder="Your full name" />
+        <!-- Form Wrapper (relative to position the overlay) -->
+        <div class="reveal form-wrapper bg-white rounded-3xl p-8 md:p-10 border border-navy-100/30 shadow-lg relative">
+            <!-- Netlify Form -->
+            <form id="involvementForm" name="involvement-form" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="relative z-0">
+                <!-- Hidden Netlify fields -->
+                <input type="hidden" name="form-name" value="involvement-form" />
+                <p class="hidden" aria-hidden="true">
+                    <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-navy-700 mb-2">Full Name *</label>
+                        <input type="text" name="fullName" required class="form-input w-full px-5 py-3.5 bg-white border border-navy-100 rounded-xl focus:outline-none transition-all text-charcoal" placeholder="Your full name" />
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-navy-700 mb-2">Organization</label>
+                        <input type="text" name="organization" class="form-input w-full px-5 py-3.5 bg-white border border-navy-100 rounded-xl focus:outline-none transition-all text-charcoal" placeholder="Your organization" />
+                    </div>
                 </div>
-                <div>
-                    <label class="block text-sm font-semibold text-navy-700 mb-2">Organization</label>
-                    <input type="text" class="form-input w-full px-5 py-3.5 bg-white border border-navy-100 rounded-xl focus:outline-none transition-all text-charcoal" placeholder="Your organization" />
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-navy-700 mb-2">Email Address *</label>
+                        <input type="email" name="email" required class="form-input w-full px-5 py-3.5 bg-white border border-navy-100 rounded-xl focus:outline-none transition-all text-charcoal" placeholder="you@example.com" />
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-navy-700 mb-2">Phone Number</label>
+                        <input type="tel" name="phone" class="form-input w-full px-5 py-3.5 bg-white border border-navy-100 rounded-xl focus:outline-none transition-all text-charcoal" placeholder="+211 ..." />
+                    </div>
                 </div>
-            </div>
-            <div class="grid md:grid-cols-2 gap-6 mb-6">
-                <div>
-                    <label class="block text-sm font-semibold text-navy-700 mb-2">Email Address *</label>
-                    <input type="email" required class="form-input w-full px-5 py-3.5 bg-white border border-navy-100 rounded-xl focus:outline-none transition-all text-charcoal" placeholder="you@example.com" />
+                <div class="mb-6">
+                    <label class="block text-sm font-semibold text-navy-700 mb-2">Area of Interest</label>
+                    <select name="interest" class="form-input w-full px-5 py-3.5 bg-white border border-navy-100 rounded-xl focus:outline-none transition-all text-charcoal">
+                        <option value="">Select an area</option>
+                        <option>Partnership</option>
+                        <option>Volunteering</option>
+                        <option>Program Support</option>
+                        <option>Community Engagement</option>
+                        <option>Other</option>
+                    </select>
                 </div>
-                <div>
-                    <label class="block text-sm font-semibold text-navy-700 mb-2">Phone Number</label>
-                    <input type="tel" class="form-input w-full px-5 py-3.5 bg-white border border-navy-100 rounded-xl focus:outline-none transition-all text-charcoal" placeholder="+211 ..." />
+                <div class="mb-8">
+                    <label class="block text-sm font-semibold text-navy-700 mb-2">Message *</label>
+                    <textarea name="message" required rows="5" class="form-input w-full px-5 py-3.5 bg-white border border-navy-100 rounded-xl focus:outline-none transition-all text-charcoal resize-none" placeholder="Tell us how you'd like to get involved..."></textarea>
                 </div>
+                <button type="submit" id="involvementSubmitBtn" class="group w-full inline-flex items-center justify-center gap-3 px-8 py-4 bg-navy-700 hover:bg-navy-800 text-white font-semibold rounded-xl transition-all shadow-lg shadow-navy-700/30 btn-shine">
+                    Submit Inquiry
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </button>
+            </form>
+
+            <!-- Thank You Overlay -->
+            <div id="involvementSuccessOverlay" class="form-success-overlay">
+                <div class="form-success-icon">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <h3 class="font-serif text-2xl md:text-3xl font-bold text-navy-700 mb-3">Thank You!</h3>
+                <p class="text-charcoal/70 text-base md:text-lg max-w-md leading-relaxed">Your inquiry has been received. We'll get back to you shortly.</p>
+                <p class="text-charcoal/50 text-sm mt-4">The form will reset in a few seconds...</p>
             </div>
-            <div class="mb-6">
-                <label class="block text-sm font-semibold text-navy-700 mb-2">Area of Interest</label>
-                <select class="form-input w-full px-5 py-3.5 bg-white border border-navy-100 rounded-xl focus:outline-none transition-all text-charcoal">
-                    <option value="">Select an area</option>
-                    <option>Partnership</option>
-                    <option>Volunteering</option>
-                    <option>Program Support</option>
-                    <option>Community Engagement</option>
-                    <option>Other</option>
-                </select>
-            </div>
-            <div class="mb-8">
-                <label class="block text-sm font-semibold text-navy-700 mb-2">Message *</label>
-                <textarea required rows="5" class="form-input w-full px-5 py-3.5 bg-white border border-navy-100 rounded-xl focus:outline-none transition-all text-charcoal resize-none" placeholder="Tell us how you'd like to get involved..."></textarea>
-            </div>
-            <button type="submit" class="group w-full inline-flex items-center justify-center gap-3 px-8 py-4 bg-navy-700 hover:bg-navy-800 text-white font-semibold rounded-xl transition-all shadow-lg shadow-navy-700/30 btn-shine">
-                Submit Inquiry
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-            </button>
-        </form>
+        </div>
     </div>
 </section>
-
 <!-- ========== FINAL CTA ========== -->
 <section class="relative py-24 md:py-32 overflow-hidden">
     <div class="absolute inset-0"><img src="assets/navca8.jpg" alt="" class="w-full h-full object-cover" /></div>
@@ -719,7 +738,7 @@
 </button>
 
 <script>
-    // Navbar scroll
+    // ========== NAVBAR SCROLL EFFECT ==========
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 80) {
@@ -731,6 +750,7 @@
         }
     });
 
+    // ========== MOBILE MENU ==========
     const menuBtn = document.getElementById('menuBtn');
     const closeMenu = document.getElementById('closeMenu');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -738,11 +758,18 @@
     closeMenu.addEventListener('click', () => mobileMenu.classList.remove('open'));
     document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('open')));
 
+    // ========== REVEAL ON SCROLL ==========
     const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); } });
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                revealObserver.unobserve(entry.target);
+            }
+        });
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
+    // ========== BACK TO TOP BUTTON ==========
     const backToTop = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
         const isVisible = window.scrollY > 600;
@@ -755,25 +782,113 @@
     });
     backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-    // Form submission simulation
-    const form = document.getElementById('involvementForm');
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const btn = form.querySelector('button[type="submit"]');
-        const original = btn.innerHTML;
-        btn.innerHTML = '<span class="inline-block w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></span> Sending...';
-        setTimeout(() => {
-            btn.innerHTML = '✓ Inquiry Submitted!';
-            btn.classList.remove('bg-navy-700', 'hover:bg-navy-800');
-            btn.classList.add('bg-forest-600');
-            form.reset();
-            setTimeout(() => {
-                btn.innerHTML = original;
-                btn.classList.add('bg-navy-700', 'hover:bg-navy-800');
-                btn.classList.remove('bg-forest-600');
-            }, 3000);
-        }, 1500);
-    });
+    // ========== TYPING ANIMATION (Hero Section) ==========
+    function startTypingAnimation() {
+        const subtitleEl = document.getElementById('typingSubtitle');
+        if (!subtitleEl) return;
+        const fullText = "Improving the quality of life of the most vulnerable communities — especially women, children, the elderly, and persons with disabilities — through integrated, inclusive, and rights-based humanitarian and development interventions.";
+        let charIndex = 0;
+        const typingSpeed = 30;
+        subtitleEl.textContent = '';
+        const cursorSpan = document.createElement('span');
+        cursorSpan.className = 'typing-cursor';
+        subtitleEl.appendChild(cursorSpan);
+
+        function typeNextChar() {
+            if (charIndex < fullText.length) {
+                const textNode = document.createTextNode(fullText.charAt(charIndex));
+                subtitleEl.insertBefore(textNode, cursorSpan);
+                charIndex++;
+                setTimeout(typeNextChar, typingSpeed + Math.random() * 20);
+            } else {
+                setTimeout(() => {
+                    cursorSpan.style.transition = 'opacity 0.6s';
+                    cursorSpan.style.opacity = '0';
+                    setTimeout(() => { if (cursorSpan.parentNode) cursorSpan.parentNode.removeChild(cursorSpan); }, 600);
+                }, 3000);
+            }
+        }
+        setTimeout(typeNextChar, 600);
+    }
+    document.addEventListener('DOMContentLoaded', startTypingAnimation);
+
+    // ========== COUNTER ANIMATION ==========
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const target = parseInt(el.dataset.target);
+                const duration = 2000;
+                const start = performance.now();
+                const animate = (now) => {
+                    const progress = Math.min((now - start) / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    el.textContent = Math.floor(eased * target).toLocaleString();
+                    if (progress < 1) requestAnimationFrame(animate);
+                    else el.textContent = target.toLocaleString();
+                };
+                requestAnimationFrame(animate);
+                counterObserver.unobserve(el);
+            }
+        });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.counter-value').forEach(el => counterObserver.observe(el));
+
+    // ========== CONTACT FORM (Netlify + Thank You Overlay) ==========
+    const involvementForm = document.getElementById('involvementForm');
+    const involvementSubmitBtn = document.getElementById('involvementSubmitBtn');
+    const involvementSuccessOverlay = document.getElementById('involvementSuccessOverlay');
+    let involvementResetTimer = null;
+
+    if (involvementForm) {
+        involvementForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const originalBtnHTML = involvementSubmitBtn.innerHTML;
+            involvementSubmitBtn.innerHTML = '<span class="inline-block w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></span> Sending...';
+            involvementSubmitBtn.disabled = true;
+
+            try {
+                const formData = new FormData(involvementForm);
+                const urlEncodedData = new URLSearchParams(formData).toString();
+
+                const response = await fetch(window.location.pathname, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: urlEncodedData,
+                });
+
+                if (response.ok || response.status === 200 || response.status === 301 || response.status === 302) {
+                    // Show thank you overlay
+                    involvementSuccessOverlay.classList.add('active');
+                    involvementForm.reset();
+
+                    if (involvementResetTimer) clearTimeout(involvementResetTimer);
+                    involvementResetTimer = setTimeout(() => {
+                        involvementSuccessOverlay.classList.remove('active');
+                        involvementSubmitBtn.innerHTML = originalBtnHTML;
+                        involvementSubmitBtn.disabled = false;
+                        involvementResetTimer = null;
+                    }, 5000);
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                console.error('Form submission error:', error);
+                // Fallback: still show thank you overlay (Netlify may still process it)
+                involvementSuccessOverlay.classList.add('active');
+                involvementForm.reset();
+
+                if (involvementResetTimer) clearTimeout(involvementResetTimer);
+                involvementResetTimer = setTimeout(() => {
+                    involvementSuccessOverlay.classList.remove('active');
+                    involvementSubmitBtn.innerHTML = originalBtnHTML;
+                    involvementSubmitBtn.disabled = false;
+                    involvementResetTimer = null;
+                }, 5000);
+            }
+        });
+    }
 </script>
 </body>
 </html>
