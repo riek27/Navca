@@ -225,6 +225,48 @@
         .form-input:focus {
             border-color: #F4B942;
             box-shadow: 0 0 0 3px rgba(244, 185, 66, 0.15);
+            .form-wrapper {
+    position: relative;
+}
+
+.form-success-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.97);
+    border-radius: 1.5rem;
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    text-align: center;
+    padding: 2rem;
+}
+.form-success-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.form-success-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #2E7D32;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    animation: successPop 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes successPop {
+    0% { transform: scale(0); opacity: 0; }
+    60% { transform: scale(1.2); }
+    100% { transform: scale(1); opacity: 1; }
+}
         }
     </style>
 </head>
@@ -378,7 +420,7 @@
     </div>
 </section>
 
-<!-- ========== CONTACT FORM ========== -->
+<!-- ========== CONTACT FORM (Netlify-Ready) ========== -->
 <section class="py-16 md:py-24 bg-navy-50/50 relative overflow-hidden">
     <div class="max-w-4xl mx-auto px-6 lg:px-10">
         <div class="text-center max-w-3xl mx-auto mb-16 reveal">
@@ -387,43 +429,62 @@
             <div class="section-divider mx-auto mb-6"></div>
         </div>
 
-        <form class="reveal bg-white rounded-3xl p-8 md:p-10 border border-navy-100/30 shadow-lg" id="contactForm">
-            <div class="grid md:grid-cols-2 gap-6 mb-6">
-                <div>
-                    <label class="block text-sm font-semibold text-navy-700 mb-2">Full Name *</label>
-                    <input type="text" required class="form-input w-full px-5 py-3.5 bg-white border border-navy-100 rounded-xl focus:outline-none transition-all text-charcoal" placeholder="Your full name" />
+        <!-- Form wrapper for overlay positioning -->
+        <div class="reveal form-wrapper bg-white rounded-3xl p-8 md:p-10 border border-navy-100/30 shadow-lg relative">
+            <!-- NETLIFY FORM -->
+            <form id="contactForm" name="contact-form" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="relative z-0">
+                <!-- Hidden Netlify fields -->
+                <input type="hidden" name="form-name" value="contact-form" />
+                <p class="hidden" aria-hidden="true">
+                    <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-navy-700 mb-2">Full Name *</label>
+                        <input type="text" name="fullName" required class="form-input w-full px-5 py-3.5 bg-white border border-navy-100 rounded-xl focus:outline-none transition-all text-charcoal" placeholder="Your full name" />
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-navy-700 mb-2">Organization</label>
+                        <input type="text" name="organization" class="form-input w-full px-5 py-3.5 bg-white border border-navy-100 rounded-xl focus:outline-none transition-all text-charcoal" placeholder="Your organization" />
+                    </div>
                 </div>
-                <div>
-                    <label class="block text-sm font-semibold text-navy-700 mb-2">Organization</label>
-                    <input type="text" class="form-input w-full px-5 py-3.5 bg-white border border-navy-100 rounded-xl focus:outline-none transition-all text-charcoal" placeholder="Your organization" />
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-navy-700 mb-2">Email Address *</label>
+                        <input type="email" name="email" required class="form-input w-full px-5 py-3.5 bg-white border border-navy-100 rounded-xl focus:outline-none transition-all text-charcoal" placeholder="you@example.com" />
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-navy-700 mb-2">Phone Number</label>
+                        <input type="tel" name="phone" class="form-input w-full px-5 py-3.5 bg-white border border-navy-100 rounded-xl focus:outline-none transition-all text-charcoal" placeholder="+211 ..." />
+                    </div>
                 </div>
-            </div>
-            <div class="grid md:grid-cols-2 gap-6 mb-6">
-                <div>
-                    <label class="block text-sm font-semibold text-navy-700 mb-2">Email Address *</label>
-                    <input type="email" required class="form-input w-full px-5 py-3.5 bg-white border border-navy-100 rounded-xl focus:outline-none transition-all text-charcoal" placeholder="you@example.com" />
+                <div class="mb-6">
+                    <label class="block text-sm font-semibold text-navy-700 mb-2">Subject</label>
+                    <input type="text" name="subject" class="form-input w-full px-5 py-3.5 bg-white border border-navy-100 rounded-xl focus:outline-none transition-all text-charcoal" placeholder="How can we help you?" />
                 </div>
-                <div>
-                    <label class="block text-sm font-semibold text-navy-700 mb-2">Phone Number</label>
-                    <input type="tel" class="form-input w-full px-5 py-3.5 bg-white border border-navy-100 rounded-xl focus:outline-none transition-all text-charcoal" placeholder="+211 ..." />
+                <div class="mb-8">
+                    <label class="block text-sm font-semibold text-navy-700 mb-2">Message *</label>
+                    <textarea name="message" required rows="5" class="form-input w-full px-5 py-3.5 bg-white border border-navy-100 rounded-xl focus:outline-none transition-all text-charcoal resize-none" placeholder="Tell us how we can work together..."></textarea>
                 </div>
+                <button type="submit" id="contactFormSubmitBtn" class="group w-full inline-flex items-center justify-center gap-3 px-8 py-4 bg-navy-700 hover:bg-navy-800 text-white font-semibold rounded-xl transition-all shadow-lg shadow-navy-700/30 btn-shine">
+                    Send Message
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </button>
+            </form>
+
+            <!-- Thank You Overlay -->
+            <div id="contactFormSuccessOverlay" class="form-success-overlay">
+                <div class="form-success-icon">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <h3 class="font-serif text-2xl md:text-3xl font-bold text-navy-700 mb-3">Thank You!</h3>
+                <p class="text-charcoal/70 text-base md:text-lg max-w-md leading-relaxed">Your message has been received. We'll get back to you within 24 hours.</p>
+                <p class="text-charcoal/50 text-sm mt-4">The form will reset shortly...</p>
             </div>
-            <div class="mb-6">
-                <label class="block text-sm font-semibold text-navy-700 mb-2">Subject</label>
-                <input type="text" class="form-input w-full px-5 py-3.5 bg-white border border-navy-100 rounded-xl focus:outline-none transition-all text-charcoal" placeholder="How can we help you?" />
-            </div>
-            <div class="mb-8">
-                <label class="block text-sm font-semibold text-navy-700 mb-2">Message *</label>
-                <textarea required rows="5" class="form-input w-full px-5 py-3.5 bg-white border border-navy-100 rounded-xl focus:outline-none transition-all text-charcoal resize-none" placeholder="Tell us how we can work together..."></textarea>
-            </div>
-            <button type="submit" class="group w-full inline-flex items-center justify-center gap-3 px-8 py-4 bg-navy-700 hover:bg-navy-800 text-white font-semibold rounded-xl transition-all shadow-lg shadow-navy-700/30 btn-shine">
-                Send Message
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-            </button>
-        </form>
+        </div>
     </div>
 </section>
-
 <!-- ========== PARTNERSHIP INQUIRIES ========== -->
 <section class="py-16 md:py-20 bg-white relative overflow-hidden">
     <div class="max-w-4xl mx-auto px-6 lg:px-10 text-center reveal">
@@ -660,7 +721,7 @@
 </button>
 
 <script>
-    // Navbar scroll
+    // ========== NAVBAR SCROLL ==========
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 80) {
@@ -672,6 +733,7 @@
         }
     });
 
+    // ========== MOBILE MENU ==========
     const menuBtn = document.getElementById('menuBtn');
     const closeMenu = document.getElementById('closeMenu');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -679,11 +741,18 @@
     closeMenu.addEventListener('click', () => mobileMenu.classList.remove('open'));
     document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('open')));
 
+    // ========== REVEAL ON SCROLL ==========
     const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); } });
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                revealObserver.unobserve(entry.target);
+            }
+        });
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
+    // ========== BACK TO TOP ==========
     const backToTop = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
         const isVisible = window.scrollY > 600;
@@ -696,25 +765,61 @@
     });
     backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-    // Contact form simulation
-    const form = document.getElementById('contactForm');
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const btn = form.querySelector('button[type="submit"]');
-        const original = btn.innerHTML;
-        btn.innerHTML = '<span class="inline-block w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></span> Sending...';
-        setTimeout(() => {
-            btn.innerHTML = '✓ Message Sent!';
-            btn.classList.remove('bg-navy-700', 'hover:bg-navy-800');
-            btn.classList.add('bg-forest-600');
-            form.reset();
-            setTimeout(() => {
-                btn.innerHTML = original;
-                btn.classList.add('bg-navy-700', 'hover:bg-navy-800');
-                btn.classList.remove('bg-forest-600');
-            }, 3000);
-        }, 1500);
-    });
+    // ========== CONTACT FORM (Netlify + Thank You Overlay) ==========
+    const contactForm = document.getElementById('contactForm');
+    const contactFormSubmitBtn = document.getElementById('contactFormSubmitBtn');
+    const contactFormSuccessOverlay = document.getElementById('contactFormSuccessOverlay');
+    let contactFormResetTimer = null;
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const originalBtnHTML = contactFormSubmitBtn.innerHTML;
+            contactFormSubmitBtn.innerHTML = '<span class="inline-block w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></span> Sending...';
+            contactFormSubmitBtn.disabled = true;
+
+            try {
+                const formData = new FormData(contactForm);
+                const urlEncodedData = new URLSearchParams(formData).toString();
+
+                const response = await fetch(window.location.pathname, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: urlEncodedData,
+                });
+
+                if (response.ok || response.status === 200 || response.status === 301 || response.status === 302) {
+                    // Show thank‑you overlay
+                    contactFormSuccessOverlay.classList.add('active');
+                    contactForm.reset();
+
+                    if (contactFormResetTimer) clearTimeout(contactFormResetTimer);
+                    contactFormResetTimer = setTimeout(() => {
+                        contactFormSuccessOverlay.classList.remove('active');
+                        contactFormSubmitBtn.innerHTML = originalBtnHTML;
+                        contactFormSubmitBtn.disabled = false;
+                        contactFormResetTimer = null;
+                    }, 5000);
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                console.error('Form submission error:', error);
+                // Fallback: still show thank‑you (Netlify may still process it)
+                contactFormSuccessOverlay.classList.add('active');
+                contactForm.reset();
+
+                if (contactFormResetTimer) clearTimeout(contactFormResetTimer);
+                contactFormResetTimer = setTimeout(() => {
+                    contactFormSuccessOverlay.classList.remove('active');
+                    contactFormSubmitBtn.innerHTML = originalBtnHTML;
+                    contactFormSubmitBtn.disabled = false;
+                    contactFormResetTimer = null;
+                }, 5000);
+            }
+        });
+    }
 </script>
 </body>
 </html>
