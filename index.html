@@ -496,54 +496,76 @@
             box-shadow: 0 20px 40px -12px rgba(11, 31, 58, 0.2);
         }
 
-        /* Form success overlay */
-        .form-success-overlay {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.97);
-            border-radius: 1.5rem;
-            z-index: 10;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.5s ease;
-            text-align: center;
-            padding: 2rem;
-        }
-        .form-success-overlay.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-        .form-success-icon {
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
-            background: #2E7D32;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.25rem;
-            animation: successPop 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        @keyframes successPop {
-            0% {
-                transform: scale(0);
-                opacity: 0;
-            }
-            60% {
-                transform: scale(1.2);
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-        .form-wrapper {
-            position: relative;
-        }
+        /* Larger logo + two‑line brand name */
+.logo-img-wrapper {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(244, 185, 66, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.logo-img-wrapper .nav-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.group:hover .logo-img-wrapper {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(244, 185, 66, 0.5);
+}
+
+/* Brand text (Tailwind already handles most of it, but you can keep this as a fallback) */
+.brand-line {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    color: #0B1F3A;
+    white-space: nowrap;
+    line-height: 1.2;
+}
+
+        /* ==========================================
+   NETLIFY FORM – OVERLAY STYLES
+   ========================================== */
+.form-wrapper {
+    position: relative;
+}
+
+.form-success-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    z-index: 20;
+}
+
+.form-success-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.form-success-icon {
+    width: 64px;
+    height: 64px;
+    background: #2E7D32;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
 
         /* Cross-cutting program card text fix for mobile */
         .cross-cut-text {
@@ -561,13 +583,15 @@
         <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-3 group">
                 <div class="logo-img-wrapper">
-                    <img src="assets/navcalogo.png" alt="NAVCA Logo" class="nav-logo-img" />
-                </div>
-                <div class="flex flex-col leading-tight">
-                    <span class="font-serif font-bold text-lg text-navy-700 transition-colors">NAVCA</span>
-                    <span class="text-[10px] tracking-widest text-navy-600/70 transition-colors uppercase">South Sudan</span>
-                </div>
-            </a>
+                    <a href="index.html" class="flex items-center gap-3 group flex-shrink-0">
+    <div class="logo-img-wrapper" style="width:72px; height:72px;">
+        <img src="assets/navcalogo.png" alt="NAVCA Logo" class="nav-logo-img" />
+    </div>
+    <div class="flex flex-col justify-center min-w-0 leading-tight">
+        <span class="font-serif font-bold text-sm xl:text-base text-navy-700 whitespace-nowrap">Nation Wide Vulnerability</span>
+        <span class="font-serif font-bold text-sm xl:text-base text-navy-700 whitespace-nowrap">Concern Agency</span>
+    </div>
+</a>
 
             <div class="hidden lg:flex items-center gap-5">
                 <a href="index.html" class="nav-link font-medium text-navy-700 transition-colors hover:text-gold-500">Home</a>
@@ -687,6 +711,9 @@
                 <div class="partner-logo flex items-center justify-center px-8 h-16 min-w-max"><span class="font-serif text-3xl font-bold text-navy-700">UNICEF</span></div>
                 <div class="partner-logo flex items-center justify-center px-8 h-16 min-w-max"><span class="font-serif text-2xl font-bold text-navy-700">UN Women</span></div>
                 <div class="partner-logo flex items-center justify-center px-8 h-16 min-w-max"><span class="font-serif text-2xl font-bold text-navy-700 text-center leading-tight">World Food<br>Programme</span></div>
+                <div class="partner-logo flex items-center justify-center px-8 h-16 min-w-max">
+                   <span class="font-serif text-xl font-bold text-navy-700 text-center leading-tight">South Sudan Organization<br>with People with Disability</span>
+                </div>
                 <div class="partner-logo flex items-center justify-center px-8 h-16 min-w-max"><span class="font-serif text-xl font-bold text-navy-700 text-center leading-tight">Relief & Rehab<br>Commission</span></div>
                 <div class="partner-logo flex items-center justify-center px-8 h-16 min-w-max"><span class="font-serif text-2xl font-bold text-navy-700 text-center leading-tight">Local NGO<br>Partners</span></div>
                 <!-- duplicate -->
@@ -696,6 +723,9 @@
                 <div class="partner-logo flex items-center justify-center px-8 h-16 min-w-max"><span class="font-serif text-3xl font-bold text-navy-700">UNICEF</span></div>
                 <div class="partner-logo flex items-center justify-center px-8 h-16 min-w-max"><span class="font-serif text-2xl font-bold text-navy-700">UN Women</span></div>
                 <div class="partner-logo flex items-center justify-center px-8 h-16 min-w-max"><span class="font-serif text-2xl font-bold text-navy-700 text-center leading-tight">World Food<br>Programme</span></div>
+                <div class="partner-logo flex items-center justify-center px-8 h-16 min-w-max">
+    <span class="font-serif text-xl font-bold text-navy-700 text-center leading-tight">South Sudan Organization<br>with People with Disability</span>
+</div>
                 <div class="partner-logo flex items-center justify-center px-8 h-16 min-w-max"><span class="font-serif text-xl font-bold text-navy-700 text-center leading-tight">Relief & Rehab<br>Commission</span></div>
                 <div class="partner-logo flex items-center justify-center px-8 h-16 min-w-max"><span class="font-serif text-2xl font-bold text-navy-700 text-center leading-tight">Local NGO<br>Partners</span></div>
             </div>
@@ -790,7 +820,7 @@
                         <span class="inline-block px-4 py-1.5 bg-forest-100 text-forest-700 text-xs font-semibold tracking-widest uppercase rounded-full mb-5">The Context</span>
                         <h3 class="font-serif text-3xl md:text-4xl font-bold text-navy-700 mb-6 leading-tight">Responding to a <span class="italic text-forest-600">Protracted Crisis</span></h3>
                         <p class="text-charcoal/70 leading-relaxed mb-4">South Sudan faces a protracted humanitarian crisis driven by decades of conflict, political instability, and frequent climate-related disasters — flooding and drought. This has resulted in mass displacement, with millions displaced or having fled to neighboring countries, many returning to areas with minimal basic services.</p>
-                        <p class="text-charcoal/70 leading-relaxed">Vulnerable groups — <strong>women, children, youth, the elderly, and persons with disabilities</strong> — face disproportionate challenges due to systemic discrimination, gender inequality, and negative societal attitudes. NAVCA exists to bridge this gap.</p>
+                        <p class="text-charcoal/70 leading-relaxed">Vulnerable groups — <strong>persons with disabilities, children, youth, the elderly, and women</strong> — face disproportionate challenges due to systemic discrimination, gender inequality, and negative societal attitudes. NAVCA exists to bridge this gap.</p>
                     </div>
                     <div class="grid grid-cols-2 gap-4">
                         <div class="bg-white rounded-2xl p-6 text-center card-lift"><div class="font-serif text-3xl font-bold text-navy-700 mb-1">2M+</div><div class="text-xs text-charcoal/60">Displaced South Sudanese</div></div>
@@ -968,17 +998,18 @@
                 <p class="text-lg text-white/70 leading-relaxed">Head Office: Jebel, Juba — with established presence across the most vulnerable regions of South Sudan.</p>
             </div>
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 reveal">
-                <div class="glass rounded-2xl p-6 card-lift"><h4 class="font-serif text-xl font-bold text-gold-500 mb-3">Unity State</h4><p class="text-white/70 text-sm">Leer, Mayendit, Panyijar</p></div>
-                <div class="glass rounded-2xl p-6 card-lift"><h4 class="font-serif text-xl font-bold text-gold-500 mb-3">Jonglei State</h4><p class="text-white/70 text-sm">Uror, Duk, Fangak, Akobo, Pigj</p></div>
-                <div class="glass rounded-2xl p-6 card-lift"><h4 class="font-serif text-xl font-bold text-gold-500 mb-3">Upper Nile State</h4><p class="text-white/70 text-sm">Renk, Maban, Ulang, Nasir, Maiwut, Longchuk</p></div>
-                <div class="glass rounded-2xl p-6 card-lift"><h4 class="font-serif text-xl font-bold text-gold-500 mb-3">Equatoria States</h4><p class="text-white/70 text-sm">Terekeka (Central Equatoria)</p></div>
-                <div class="glass rounded-2xl p-6 card-lift"><h4 class="font-serif text-xl font-bold text-gold-500 mb-3">Eastern Equatoria</h4><p class="text-white/70 text-sm">Torit, Kopoeta North</p></div>
+                <div class="glass rounded-2xl p-6 card-lift"><h4 class="font-serif text-xl font-bold text-gold-500 mb-3">Unity State</h4><p class="text-white/70 text-sm">Leer, Mayendit, Koch, Guit, Panyijar</p></div>
+                <div class="glass rounded-2xl p-6 card-lift"><h4 class="font-serif text-xl font-bold text-gold-500 mb-3">Jonglei State</h4><p class="text-white/70 text-sm">Uror, Duk, Fangak, Akobo, Ayod, Pigj</p></div>
+                <div class="glass rounded-2xl p-6 card-lift"><h4 class="font-serif text-xl font-bold text-gold-500 mb-3">Upper Nile State</h4><p class="text-white/70 text-sm">Renk, Maban, Ulang, Nasir, Maiwut, Panyikang, Longchuk</p></div>
+                <div class="glass rounded-2xl p-6 card-lift"><h4 class="font-serif text-xl font-bold text-gold-500 mb-3">Central Equatoria</h4><p class="text-white/70 text-sm">Terekeka, Lainya, Kajo Keji, Juba</p></div>
+                <div class="glass rounded-2xl p-6 card-lift"><h4 class="font-serif text-xl font-bold text-gold-500 mb-3">Eastern Equatoria</h4><p class="text-white/70 text-sm">Torit, Kopoeta, Budi</p></div>
+                 <div class="glass rounded-2xl p-6 card-lift"><h4 class="font-serif text-xl font-bold text-gold-500 mb-3">Western Equatoria</h4><p class="text-white/70 text-sm">Mvolo, Mundari</p></div>
                 <div class="glass rounded-2xl p-6 card-lift"><h4 class="font-serif text-xl font-bold text-gold-500 mb-3">Pibor Administrative Area</h4><p class="text-white/70 text-sm">Dedicated operations</p></div>
             </div>
             <div class="grid md:grid-cols-3 gap-6 reveal">
                 <div class="glass rounded-2xl p-8 float-1"><svg class="w-10 h-10 text-gold-500 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/></svg><p class="text-white/90 leading-relaxed mb-6">"NAVCA's programs gave my daughters a chance to go to school. For the first time, I see a future for them beyond survival."</p><div class="flex items-center gap-3"><div class="w-12 h-12 rounded-full bg-gradient-to-br from-gold-500 to-gold-600 flex items-center justify-center text-navy-700 font-bold">AM</div><div><div class="text-white font-semibold">Achol Madut</div><div class="text-white/60 text-xs">Mother of three, Juba</div></div></div></div>
-                <div class="glass rounded-2xl p-8 float-2"><svg class="w-10 h-10 text-gold-500 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/></svg><p class="text-white/90 leading-relaxed mb-6">"Through NAVCA's 'Be Your Own Boss' training, I learned tailoring and now run my own small business. I am no longer dependent."</p><div class="flex items-center gap-3"><div class="w-12 h-12 rounded-full bg-gradient-to-br from-forest-600 to-forest-700 flex items-center justify-center text-white font-bold">DK</div><div><div class="text-white font-semibold">Deng Kuol</div><div class="text-white/60 text-xs">Youth Entrepreneur, Bor</div></div></div></div>
-                <div class="glass rounded-2xl p-8 float-3"><svg class="w-10 h-10 text-gold-500 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/></svg><p class="text-white/90 leading-relaxed mb-6">"The peacebuilding dialogues NAVCA facilitated helped our communities reconcile after years of conflict. We are one people again."</p><div class="flex items-center gap-3"><div class="w-12 h-12 rounded-full bg-gradient-to-br from-gold-500 to-forest-600 flex items-center justify-center text-white font-bold">JN</div><div><div class="text-white font-semibold">James Nyikang</div><div class="text-white/60 text-xs">Community Leader, Malakal</div></div></div></div>
+                <div class="glass rounded-2xl p-8 float-2"><svg class="w-10 h-10 text-gold-500 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/></svg><p class="text-white/90 leading-relaxed mb-6">"Through NAVCA's 'Be Your Own Boss' training, I learned tailoring and now run my own small business. I am no longer dependent."</p><div class="flex items-center gap-3"><div class="w-12 h-12 rounded-full bg-gradient-to-br from-forest-600 to-forest-700 flex items-center justify-center text-white font-bold">DK</div><div><div class="text-white font-semibold">Deng Kuol</div><div class="text-white/60 text-xs">Youth Entrepreneur, Leer</div></div></div></div>
+                <div class="glass rounded-2xl p-8 float-3"><svg class="w-10 h-10 text-gold-500 mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/></svg><p class="text-white/90 leading-relaxed mb-6">"The peacebuilding dialogues NAVCA facilitated helped our communities reconcile after years of conflict. We are one people again."</p><div class="flex items-center gap-3"><div class="w-12 h-12 rounded-full bg-gradient-to-br from-gold-500 to-forest-600 flex items-center justify-center text-white font-bold">JN</div><div><div class="text-white font-semibold">James Nyikang</div><div class="text-white/60 text-xs">Community Leader, Renk</div></div></div></div>
             </div>
         </div>
     </section>
@@ -1028,90 +1059,93 @@
         </div>
     </section>
 
-    <!-- SECTION 11: CONTACT WITH NETLIFY FORM -->
-    <section id="contact" class="py-24 md:py-32 bg-white relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 lg:px-10">
-            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-                <span class="inline-block px-4 py-1.5 bg-gold-100 text-gold-600 text-xs font-semibold tracking-widest uppercase rounded-full mb-5">Contact Us</span>
-                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-navy-700 leading-tight mb-6">Let's <span class="italic text-forest-600">Connect</span> & Create Change</h2>
-                <div class="section-divider mx-auto mb-6"></div>
-                <p class="text-lg text-charcoal/70 leading-relaxed">We'd love to hear from you. Whether you're a potential partner, donor, or supporter — reach out and let's build something meaningful together.</p>
-            </div>
+  <!-- ============================================ -->
+<!-- CONTACT WITH NETLIFY FORM -->
+<!-- ============================================ -->
+<section id="contact" class="py-24 md:py-32 bg-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+            <span class="inline-block px-4 py-1.5 bg-gold-100 text-gold-600 text-xs font-semibold tracking-widest uppercase rounded-full mb-5">Contact Us</span>
+            <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-navy-700 leading-tight mb-6">Let's <span class="italic text-forest-600">Connect</span> & Create Change</h2>
+            <div class="section-divider mx-auto mb-6"></div>
+            <p class="text-lg text-charcoal/70 leading-relaxed">We'd love to hear from you. Whether you're a potential partner, donor, or supporter — reach out and let's build something meaningful together.</p>
+        </div>
 
-            <div class="grid lg:grid-cols-5 gap-10">
-                <div class="lg:col-span-3 reveal">
-                    <div class="form-wrapper bg-navy-50/50 rounded-3xl p-8 md:p-10 border border-navy-100/50 relative">
-                        <!-- NETLIFY FORM -->
-                        <form id="contactForm" name="contact-form" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="relative z-0">
-                            <!-- Hidden fields for Netlify -->
-                            <input type="hidden" name="form-name" value="contact-form" />
-                            <p class="hidden" aria-hidden="true">
-                                <label>Don't fill this out if you're human: <input name="bot-field" /></label>
-                            </p>
+        <div class="grid lg:grid-cols-5 gap-10">
+            <!-- FORM COLUMN -->
+            <div class="lg:col-span-3 reveal">
+                <div class="form-wrapper bg-navy-50/50 rounded-3xl p-8 md:p-10 border border-navy-100/50 relative">
+                    <!-- NETLIFY FORM -->
+                    <form id="contactForm" name="contact-form" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="relative z-0">
+                        <input type="hidden" name="form-name" value="contact-form" />
+                        <p class="hidden" aria-hidden="true">
+                            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                        </p>
 
-                            <div class="grid md:grid-cols-2 gap-6 mb-6">
-                                <div>
-                                    <label class="block text-sm font-semibold text-navy-700 mb-2" for="fullName">Full Name *</label>
-                                    <input type="text" id="fullName" name="fullName" required class="form-input w-full px-5 py-3.5 bg-white border border-navy-100 rounded-xl focus:outline-none transition-all text-charcoal" placeholder="Your full name" />
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-semibold text-navy-700 mb-2" for="email">Email Address *</label>
-                                    <input type="email" id="email" name="email" required class="form-input w-full px-5 py-3.5 bg-white border border-navy-100 rounded-xl focus:outline-none transition-all text-charcoal" placeholder="you@example.com" />
-                                </div>
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-navy-700 mb-2" for="fullName">Full Name *</label>
+                                <input type="text" id="fullName" name="fullName" required class="form-input w-full px-5 py-3.5 bg-white border border-navy-100 rounded-xl focus:outline-none transition-all text-charcoal" placeholder="Your full name" />
                             </div>
-                            <div class="grid md:grid-cols-2 gap-6 mb-6">
-                                <div>
-                                    <label class="block text-sm font-semibold text-navy-700 mb-2" for="phone">Phone Number</label>
-                                    <input type="tel" id="phone" name="phone" class="form-input w-full px-5 py-3.5 bg-white border border-navy-100 rounded-xl focus:outline-none transition-all text-charcoal" placeholder="+211 ..." />
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-semibold text-navy-700 mb-2" for="organization">Organization</label>
-                                    <input type="text" id="organization" name="organization" class="form-input w-full px-5 py-3.5 bg-white border border-navy-100 rounded-xl focus:outline-none transition-all text-charcoal" placeholder="Your organization" />
-                                </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-navy-700 mb-2" for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required class="form-input w-full px-5 py-3.5 bg-white border border-navy-100 rounded-xl focus:outline-none transition-all text-charcoal" placeholder="you@example.com" />
                             </div>
-                            <div class="mb-6">
-                                <label class="block text-sm font-semibold text-navy-700 mb-2" for="message">Message *</label>
-                                <textarea id="message" name="message" required rows="6" class="form-input w-full px-5 py-3.5 bg-white border border-navy-100 rounded-xl focus:outline-none transition-all text-charcoal resize-none" placeholder="Tell us how we can work together..."></textarea>
-                            </div>
-                            <button type="submit" id="submitBtn" class="group w-full inline-flex items-center justify-center gap-3 px-8 py-4 bg-navy-700 hover:bg-navy-800 text-white font-semibold rounded-xl transition-all shadow-lg shadow-navy-700/30 btn-shine">
-                                Send Message
-                                <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                            </button>
-                        </form>
-
-                        <!-- Thank You Overlay -->
-                        <div id="formSuccessOverlay" class="form-success-overlay">
-                            <div class="form-success-icon">
-                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                            </div>
-                            <h3 class="font-serif text-2xl md:text-3xl font-bold text-navy-700 mb-3">Thank You!</h3>
-                            <p class="text-charcoal/70 text-base md:text-lg max-w-md leading-relaxed">Your message has been received successfully. We'll get back to you within 24 hours on business days.</p>
-                            <p class="text-charcoal/50 text-sm mt-4">The form will reset shortly...</p>
                         </div>
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-navy-700 mb-2" for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" class="form-input w-full px-5 py-3.5 bg-white border border-navy-100 rounded-xl focus:outline-none transition-all text-charcoal" placeholder="+211 ..." />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-navy-700 mb-2" for="organization">Organization</label>
+                                <input type="text" id="organization" name="organization" class="form-input w-full px-5 py-3.5 bg-white border border-navy-100 rounded-xl focus:outline-none transition-all text-charcoal" placeholder="Your organization" />
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-semibold text-navy-700 mb-2" for="message">Message *</label>
+                            <textarea id="message" name="message" required rows="6" class="form-input w-full px-5 py-3.5 bg-white border border-navy-100 rounded-xl focus:outline-none transition-all text-charcoal resize-none" placeholder="Tell us how we can work together..."></textarea>
+                        </div>
+                        <button type="submit" id="submitBtn" class="group w-full inline-flex items-center justify-center gap-3 px-8 py-4 bg-navy-700 hover:bg-navy-800 text-white font-semibold rounded-xl transition-all shadow-lg shadow-navy-700/30 btn-shine">
+                            Send Message
+                            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </button>
+                    </form>
+
+                    <!-- THANK YOU OVERLAY -->
+                    <div id="formSuccessOverlay" class="form-success-overlay">
+                        <div class="form-success-icon">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                        </div>
+                        <h3 class="font-serif text-2xl md:text-3xl font-bold text-navy-700 mb-3">Thank You!</h3>
+                        <p class="text-charcoal/70 text-base md:text-lg max-w-md leading-relaxed">Your message has been received successfully. We'll get back to you within 24 hours on business days.</p>
+                        <p class="text-charcoal/50 text-sm mt-4">The form will reset shortly...</p>
                     </div>
                 </div>
+            </div>
 
-                <div class="lg:col-span-2 reveal reveal-delay-1">
-                    <div class="bg-navy-700 rounded-3xl p-8 md:p-10 text-white h-full">
-                        <h3 class="font-serif text-2xl font-bold mb-2">Get In Touch</h3>
-                        <p class="text-white/70 text-sm mb-8">Contact Person: <strong>Anek Sendrella Lupu</strong> — Chief Executive Director. We respond within 24 hours on business days.</p>
-                        <div class="space-y-6">
-                            <div class="flex items-start gap-4"><div class="w-11 h-11 rounded-xl bg-gold-500/20 flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div><div><div class="text-xs text-white/50 uppercase tracking-widest mb-1">Head Office</div><div class="font-medium">c/o Jebel - Juba, South Sudan</div></div></div>
-                            <div class="flex items-start gap-4"><div class="w-11 h-11 rounded-xl bg-gold-500/20 flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg></div><div><div class="text-xs text-white/50 uppercase tracking-widest mb-1">Phone</div><a href="tel:+211923681537" class="block hover:text-gold-500 transition-colors">+211 923 681 537</a><a href="tel:+211926136052" class="block hover:text-gold-500 transition-colors">+211 926 136 052</a><a href="tel:+211916638032" class="block hover:text-gold-500 transition-colors">+211 916 638 032</a></div></div>
-                            <div class="flex items-start gap-4"><div class="w-11 h-11 rounded-xl bg-[#25D366]/20 flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5 text-[#25D366]" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div><div><div class="text-xs text-white/50 uppercase tracking-widest mb-1">WhatsApp</div><a href="https://wa.me/211916638032" class="block hover:text-[#25D366] transition-colors font-medium">+211 916 638 032</a></div></div>
-                            <div class="flex items-start gap-4"><div class="w-11 h-11 rounded-xl bg-gold-500/20 flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div><div><div class="text-xs text-white/50 uppercase tracking-widest mb-1">Email</div><a href="mailto:info@navca-ss.org" class="block hover:text-gold-500 transition-colors font-medium break-all">info@navca-ss.org</a></div></div>
-                        </div>
-                        <div class="mt-8 rounded-2xl overflow-hidden border border-white/10 h-48 relative"><iframe src="https://www.openstreetmap.org/export/embed.html?bbox=31.5%2C4.8%2C31.7%2C4.9&layer=mapnik&marker=4.85%2C31.6" class="w-full h-full border-0" loading="lazy" title="NAVCA Office Location Map"></iframe></div>
-                        <div class="mt-8 flex gap-3">
-                            <a href="#" aria-label="Facebook" class="w-11 h-11 rounded-xl bg-white/10 hover:bg-gold-500 hover:text-navy-700 flex items-center justify-center text-white transition-all"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
-                            <a href="#" aria-label="LinkedIn" class="w-11 h-11 rounded-xl bg-white/10 hover:bg-gold-500 hover:text-navy-700 flex items-center justify-center text-white transition-all"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
-                            <a href="#" aria-label="Instagram" class="w-11 h-11 rounded-xl bg-white/10 hover:bg-gold-500 hover:text-navy-700 flex items-center justify-center text-white transition-all"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg></a>
-                        </div>
+            <!-- CONTACT DETAILS COLUMN -->
+            <div class="lg:col-span-2 reveal reveal-delay-1">
+                <div class="bg-navy-700 rounded-3xl p-8 md:p-10 text-white h-full">
+                    <h3 class="font-serif text-2xl font-bold mb-2">Get In Touch</h3>
+                    <p class="text-white/70 text-sm mb-8">Contact Person: <strong>Anek Sendrella Lupu Lotto</strong> — Chief Executive Director. We respond within 24 hours on business days.</p>
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4"><div class="w-11 h-11 rounded-xl bg-gold-500/20 flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div><div><div class="text-xs text-white/50 uppercase tracking-widest mb-1">Head Office</div><div class="font-medium">c/o Jebel - Juba, South Sudan</div></div></div>
+                        <div class="flex items-start gap-4"><div class="w-11 h-11 rounded-xl bg-gold-500/20 flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg></div><div><div class="text-xs text-white/50 uppercase tracking-widest mb-1">Phone</div><a href="tel:+211923681537" class="block hover:text-gold-500 transition-colors">+211 923 681 537</a><a href="tel:+211926136052" class="block hover:text-gold-500 transition-colors">+211 926 136 052</a><a href="tel:+211916638032" class="block hover:text-gold-500 transition-colors">+211 916 638 032</a></div></div>
+                        <div class="flex items-start gap-4"><div class="w-11 h-11 rounded-xl bg-[#25D366]/20 flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5 text-[#25D366]" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div><div><div class="text-xs text-white/50 uppercase tracking-widest mb-1">WhatsApp</div><a href="https://wa.me/211916638032" class="block hover:text-[#25D366] transition-colors font-medium">+211 916 638 032</a></div></div>
+                        <div class="flex items-start gap-4"><div class="w-11 h-11 rounded-xl bg-gold-500/20 flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div><div><div class="text-xs text-white/50 uppercase tracking-widest mb-1">Email</div><a href="mailto:info@navca-ss.org" class="block hover:text-gold-500 transition-colors font-medium break-all">info@navca-ss.org</a></div></div>
+                    </div>
+                    <div class="mt-8 rounded-2xl overflow-hidden border border-white/10 h-48 relative"><iframe src="https://www.openstreetmap.org/export/embed.html?bbox=31.5%2C4.8%2C31.7%2C4.9&layer=mapnik&marker=4.85%2C31.6" class="w-full h-full border-0" loading="lazy" title="NAVCA Office Location Map"></iframe></div>
+                    <div class="mt-8 flex gap-3">
+                        <a href="#" aria-label="Facebook" class="w-11 h-11 rounded-xl bg-white/10 hover:bg-gold-500 hover:text-navy-700 flex items-center justify-center text-white transition-all"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
+                        <a href="#" aria-label="LinkedIn" class="w-11 h-11 rounded-xl bg-white/10 hover:bg-gold-500 hover:text-navy-700 flex items-center justify-center text-white transition-all"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
+                        <a href="#" aria-label="Instagram" class="w-11 h-11 rounded-xl bg-white/10 hover:bg-gold-500 hover:text-navy-700 flex items-center justify-center text-white transition-all"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg></a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- SECTION 12: FOOTER -->
     <footer class="bg-navy-800 text-white relative overflow-hidden">
@@ -1155,32 +1189,92 @@
 
     <!-- JavaScript -->
     <script>
-        // Start typing animation immediately
-        document.addEventListener('DOMContentLoaded', () => {
-            startTypingAnimation();
-        });
+    // ==========================================
+    // TYPING ANIMATION
+    // ==========================================
+    document.addEventListener('DOMContentLoaded', () => {
+        startTypingAnimation();
+    });
 
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 80) { navbar.classList.add('shadow-lg', 'py-2');
-                navbar.classList.remove('py-2.5'); } else { navbar.classList.remove('shadow-lg', 'py-2');
-                navbar.classList.add('py-2.5'); }
-        });
+    function startTypingAnimation() {
+        const subtitleEl = document.getElementById('typingSubtitle');
+        if (!subtitleEl) return;
+        const fullText =
+            "Improving the quality of life of the most vulnerable communities — especially women, children, the elderly, and persons with disabilities — through integrated, inclusive, and rights-based humanitarian and development interventions.";
+        let charIndex = 0;
+        const typingSpeed = 30;
+        subtitleEl.textContent = '';
+        const cursorSpan = document.createElement('span');
+        cursorSpan.className = 'typing-cursor';
+        subtitleEl.appendChild(cursorSpan);
 
-        const menuBtn = document.getElementById('menuBtn');
-        const closeMenu = document.getElementById('closeMenu');
-        const mobileMenu = document.getElementById('mobileMenu');
-        menuBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
-        closeMenu.addEventListener('click', () => mobileMenu.classList.remove('open'));
-        document.querySelectorAll('.mobile-link').forEach(link => { link.addEventListener('click', () => mobileMenu.classList.remove('open')); });
+        function typeNextChar() {
+            if (charIndex < fullText.length) {
+                const textNode = document.createTextNode(fullText.charAt(charIndex));
+                subtitleEl.insertBefore(textNode, cursorSpan);
+                charIndex++;
+                setTimeout(typeNextChar, typingSpeed + Math.random() * 20);
+            } else {
+                setTimeout(() => {
+                    cursorSpan.style.transition = 'opacity 0.6s';
+                    cursorSpan.style.opacity = '0';
+                    setTimeout(() => {
+                        if (cursorSpan.parentNode) cursorSpan.parentNode.removeChild(cursorSpan);
+                    }, 600);
+                }, 3000);
+            }
+        }
+        setTimeout(typeNextChar, 600);
+    }
 
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible');
-                    revealObserver.unobserve(entry.target); } });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    // ==========================================
+    // NAVBAR SCROLL EFFECT
+    // ==========================================
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 80) {
+            navbar.classList.add('shadow-lg', 'py-2');
+            navbar.classList.remove('py-2.5');
+        } else {
+            navbar.classList.remove('shadow-lg', 'py-2');
+            navbar.classList.add('py-2.5');
+        }
+    });
 
-        const counterObserver = new IntersectionObserver((entries) => {
+    // ==========================================
+    // MOBILE MENU
+    // ==========================================
+    const menuBtn = document.getElementById('menuBtn');
+    const closeMenu = document.getElementById('closeMenu');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    menuBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+    closeMenu.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    document.querySelectorAll('.mobile-link').forEach(link => {
+        link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    });
+
+    // ==========================================
+    // SCROLL REVEAL ANIMATIONS
+    // ==========================================
+    const revealObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    );
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ==========================================
+    // COUNTER ANIMATION
+    // ==========================================
+    const counterObserver = new IntersectionObserver(
+        (entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const el = entry.target;
@@ -1198,106 +1292,87 @@
                     counterObserver.unobserve(el);
                 }
             });
-        }, { threshold: 0.5 });
-        document.querySelectorAll('.counter-value').forEach(el => counterObserver.observe(el));
+        },
+        { threshold: 0.5 }
+    );
+    document.querySelectorAll('.counter-value').forEach(el => counterObserver.observe(el));
 
-        const backToTop = document.getElementById('backToTop');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 600) { backToTop.classList.remove('opacity-0', 'invisible', 'translate-y-4');
-                backToTop.classList.add('opacity-100', 'visible', 'translate-y-0'); } else { backToTop.classList.add('opacity-0', 'invisible', 'translate-y-4');
-                backToTop.classList.remove('opacity-100', 'visible', 'translate-y-0'); }
-        });
-        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-        // ============ NETLIFY FORM HANDLING WITH THANK YOU MESSAGE ============
-        const contactForm = document.getElementById('contactForm');
-        const submitBtn = document.getElementById('submitBtn');
-        const successOverlay = document.getElementById('formSuccessOverlay');
-        let resetTimer = null;
-
-        if (contactForm) {
-            contactForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-
-                const originalBtnHTML = submitBtn.innerHTML;
-                submitBtn.innerHTML =
-                    '<span class="inline-block w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></span> Sending...';
-                submitBtn.disabled = true;
-
-                try {
-                    const formData = new FormData(contactForm);
-                    const urlEncodedData = new URLSearchParams(formData).toString();
-
-                    const response = await fetch(window.location.pathname, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                        body: urlEncodedData,
-                    });
-
-                    if (response.ok || response.status === 200 || response.status === 301 || response.status === 302) {
-                        // Show thank you overlay
-                        successOverlay.classList.add('active');
-                        contactForm.reset();
-
-                        // Clear any existing timer
-                        if (resetTimer) clearTimeout(resetTimer);
-
-                        // Reset form after 5 seconds
-                        resetTimer = setTimeout(() => {
-                            successOverlay.classList.remove('active');
-                            submitBtn.innerHTML = originalBtnHTML;
-                            submitBtn.disabled = false;
-                            resetTimer = null;
-                        }, 5000);
-                    } else {
-                        throw new Error('Form submission failed');
-                    }
-                } catch (error) {
-                    console.error('Form submission error:', error);
-                    // Fallback: still show thank you (Netlify may still process it)
-                    successOverlay.classList.add('active');
-                    contactForm.reset();
-
-                    if (resetTimer) clearTimeout(resetTimer);
-                    resetTimer = setTimeout(() => {
-                        successOverlay.classList.remove('active');
-                        submitBtn.innerHTML = originalBtnHTML;
-                        submitBtn.disabled = false;
-                        resetTimer = null;
-                    }, 5000);
-                }
-            });
+    // ==========================================
+    // BACK TO TOP BUTTON
+    // ==========================================
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 600) {
+            backToTop.classList.remove('opacity-0', 'invisible', 'translate-y-4');
+            backToTop.classList.add('opacity-100', 'visible', 'translate-y-0');
+        } else {
+            backToTop.classList.add('opacity-0', 'invisible', 'translate-y-4');
+            backToTop.classList.remove('opacity-100', 'visible', 'translate-y-0');
         }
+    });
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-        function startTypingAnimation() {
-            const subtitleEl = document.getElementById('typingSubtitle');
-            if (!subtitleEl) return;
-            const fullText =
-                "Improving the quality of life of the most vulnerable communities — especially women, children, the elderly, and persons with disabilities — through integrated, inclusive, and rights-based humanitarian and development interventions.";
-            let charIndex = 0;
-            const typingSpeed = 30;
-            subtitleEl.textContent = '';
-            const cursorSpan = document.createElement('span');
-            cursorSpan.className = 'typing-cursor';
-            subtitleEl.appendChild(cursorSpan);
+    // ==========================================
+    // NETLIFY FORM HANDLING
+    // ==========================================
+    const contactForm = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const successOverlay = document.getElementById('formSuccessOverlay');
+    let resetTimer = null;
 
-            function typeNextChar() {
-                if (charIndex < fullText.length) {
-                    const textNode = document.createTextNode(fullText.charAt(charIndex));
-                    subtitleEl.insertBefore(textNode, cursorSpan);
-                    charIndex++;
-                    setTimeout(typeNextChar, typingSpeed + Math.random() * 20);
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // Store original button content
+            const originalBtnHTML = submitBtn.innerHTML;
+            submitBtn.innerHTML =
+                '<span class="inline-block w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></span> Sending...';
+            submitBtn.disabled = true;
+
+            try {
+                const formData = new FormData(contactForm);
+                const urlEncodedData = new URLSearchParams(formData).toString();
+
+                // Submit to Netlify
+                const response = await fetch(window.location.pathname, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: urlEncodedData,
+                });
+
+                // Any 2xx or redirect status means success (Netlify may return 301)
+                if (response.ok || response.status === 301 || response.status === 302) {
+                    showThankYou(originalBtnHTML);
                 } else {
-                    setTimeout(() => {
-                        cursorSpan.style.transition = 'opacity 0.6s';
-                        cursorSpan.style.opacity = '0';
-                        setTimeout(() => { if (cursorSpan.parentNode) cursorSpan.parentNode.removeChild(
-                                cursorSpan); }, 600);
-                    }, 3000);
+                    throw new Error('Form submission failed');
                 }
+            } catch (error) {
+                console.error('Form error:', error);
+                // Fallback: show thank you anyway (Netlify may still process it)
+                showThankYou(originalBtnHTML);
             }
-            setTimeout(typeNextChar, 600);
-        }
-    </script>
+        });
+    }
+
+    function showThankYou(originalBtnHTML) {
+        successOverlay.classList.add('active');
+        contactForm.reset();
+
+        if (resetTimer) clearTimeout(resetTimer);
+
+        resetTimer = setTimeout(() => {
+            successOverlay.classList.remove('active');
+            submitBtn.innerHTML = originalBtnHTML;
+            submitBtn.disabled = false;
+            resetTimer = null;
+        }, 5000);
+    }
+</script>
 </body>
 </html>
+
+
+
+
+                
