@@ -56,29 +56,9 @@
             theme: {
                 extend: {
                     colors: {
-                        navy: {
-                            50: '#f0f3f8',
-                            100: '#d9e0ec',
-                            500: '#1a3a6b',
-                            600: '#0f2a52',
-                            700: '#0B1F3A',
-                            800: '#081730',
-                            900: '#050f21',
-                        },
-                        forest: {
-                            50: '#e8f5e9',
-                            100: '#c8e6c9',
-                            500: '#388e3c',
-                            600: '#2E7D32',
-                            700: '#1b5e20',
-                        },
-                        gold: {
-                            50: '#fef9ec',
-                            100: '#fdefc7',
-                            400: '#f6c55a',
-                            500: '#F4B942',
-                            600: '#e0a020',
-                        },
+                        navy: { 50: '#f0f3f8', 100: '#d9e0ec', 500: '#1a3a6b', 600: '#0f2a52', 700: '#0B1F3A', 800: '#081730', 900: '#050f21' },
+                        forest: { 50: '#e8f5e9', 100: '#c8e6c9', 500: '#388e3c', 600: '#2E7D32', 700: '#1b5e20' },
+                        gold: { 50: '#fef9ec', 100: '#fdefc7', 400: '#f6c55a', 500: '#F4B942', 600: '#e0a020' },
                         charcoal: '#222222',
                     },
                     fontFamily: {
@@ -92,22 +72,10 @@
                         'pulse-soft': 'pulseSoft 3s ease-in-out infinite',
                     },
                     keyframes: {
-                        fadeUp: {
-                            '0%': { opacity: '0', transform: 'translateY(30px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' },
-                        },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        },
-                        pulseSoft: {
-                            '0%, 100%': { opacity: '1' },
-                            '50%': { opacity: '0.7' },
-                        },
+                        fadeUp: { '0%': { opacity: '0', transform: 'translateY(30px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+                        float: { '0%, 100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-20px)' } },
+                        pulseSoft: { '0%, 100%': { opacity: '1' }, '50%': { opacity: '0.7' } },
                     },
                 }
             }
@@ -116,23 +84,11 @@
 
     <style>
         html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Inter', sans-serif;
-            color: #222;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
+        body { font-family: 'Inter', sans-serif; color: #222; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
         .font-serif { font-family: 'Playfair Display', serif; }
 
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .reveal { opacity: 0; transform: translateY(40px); transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
         .reveal-delay-1 { transition-delay: 0.1s; }
         .reveal-delay-2 { transition-delay: 0.2s; }
         .reveal-delay-3 { transition-delay: 0.3s; }
@@ -165,10 +121,7 @@
             box-shadow: 0 25px 50px -12px rgba(11, 31, 58, 0.25);
         }
 
-        .btn-shine {
-            position: relative;
-            overflow: hidden;
-        }
+        .btn-shine { position: relative; overflow: hidden; }
         .btn-shine::before {
             content: '';
             position: absolute;
@@ -179,17 +132,17 @@
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
             transition: left 0.6s;
         }
-        .btn-shine:hover::before {
-            left: 100%;
-        }
+        .btn-shine:hover::before { left: 100%; }
 
+        /* Larger logo matching index page */
         .logo-img-wrapper {
-            width: 48px;
-            height: 48px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(244, 185, 66, 0.3);
+            box-shadow: 0 4px 16px rgba(244, 185, 66, 0.35);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            flex-shrink: 0;
         }
         .nav-logo-img {
             width: 100%;
@@ -198,8 +151,8 @@
             display: block;
         }
         .group:hover .logo-img-wrapper {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(244, 185, 66, 0.5);
+            transform: scale(1.08);
+            box-shadow: 0 6px 24px rgba(244, 185, 66, 0.55);
         }
 
         .section-divider {
@@ -209,22 +162,12 @@
             border-radius: 2px;
         }
 
-        .icon-bg {
-            background: linear-gradient(135deg, rgba(46, 125, 50, 0.1), rgba(244, 185, 66, 0.1));
-        }
+        .icon-bg { background: linear-gradient(135deg, rgba(46, 125, 50, 0.1), rgba(244, 185, 66, 0.1)); }
 
-        .mobile-menu {
-            transform: translateX(100%);
-            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        .mobile-menu.open {
-            transform: translateX(0);
-        }
+        .mobile-menu { transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+        .mobile-menu.open { transform: translateX(0); }
 
-        .nav-link {
-            font-size: 0.75rem;
-            position: relative;
-        }
+        .nav-link { font-size: 0.75rem; position: relative; }
         .nav-link::after {
             content: '';
             position: absolute;
@@ -236,48 +179,36 @@
             transition: width 0.3s ease;
         }
         .nav-link:hover::after { width: 100%; }
-        .nav-link.active::after {
-            width: 100%;
-            background: #F4B942;
-        }
+        .nav-link.active::after { width: 100%; background: #F4B942; }
         .nav-link.active { color: #F4B942; }
 
-        .whatsapp-pulse {
-            animation: whatsappPulse 2s infinite;
-        }
+        .whatsapp-pulse { animation: whatsappPulse 2s infinite; }
         @keyframes whatsappPulse {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
             70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
-        .program-card {
-            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        .program-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 30px 60px -15px rgba(11, 31, 58, 0.25);
-        }
+        .program-card { transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+        .program-card:hover { transform: translateY(-6px); box-shadow: 0 30px 60px -15px rgba(11, 31, 58, 0.25); }
 
         .img-zoom { overflow: hidden; }
-        .img-zoom img {
-            transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-        }
+        .img-zoom img { transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
         .img-zoom:hover img { transform: scale(1.08); }
     </style>
 </head>
 <body class="bg-white">
 
-<!-- NAVBAR (refined to match index.html) -->
+<!-- NAVBAR (updated with larger logo and full name) -->
 <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm py-2.5 transition-all duration-500">
     <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between">
-        <a href="index.html" class="flex items-center gap-3 group">
+        <a href="index.html" class="flex items-center gap-3 group flex-shrink-0">
             <div class="logo-img-wrapper">
                 <img src="assets/navcalogo.png" alt="NAVCA Logo" class="nav-logo-img" />
             </div>
-            <div class="flex flex-col leading-tight">
-                <span class="font-serif font-bold text-lg text-navy-700 transition-colors">NAVCA</span>
-                <span class="text-[10px] tracking-widest text-navy-600/70 transition-colors uppercase">South Sudan</span>
+            <div class="flex flex-col justify-center leading-tight">
+                <span class="font-serif font-bold text-sm xl:text-base text-navy-700 whitespace-nowrap">Nation Wide Vulnerability</span>
+                <span class="font-serif font-bold text-sm xl:text-base text-navy-700 whitespace-nowrap">Concern Agency</span>
             </div>
         </a>
         <div class="hidden lg:flex items-center gap-5">
@@ -951,7 +882,3 @@
 </script>
 </body>
 </html>
-
-
-
-
