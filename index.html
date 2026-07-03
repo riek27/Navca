@@ -200,16 +200,37 @@
             width: 100%;
         }
 
-        /* Larger Logo */
-        .logo-img-wrapper {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            overflow: hidden;
-            box-shadow: 0 4px 16px rgba(244, 185, 66, 0.35);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            flex-shrink: 0;
-        }
+        /* ---------- NAVBAR LOGO STYLES ---------- */
+.logo-img-wrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(244, 185, 66, 0.35);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0; /* prevents logo from shrinking on small screens */
+}
+
+.nav-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.group:hover .logo-img-wrapper {
+    transform: scale(1.08);
+    box-shadow: 0 6px 24px rgba(244, 185, 66, 0.55);
+}
+
+/* Brand text next to the logo */
+.brand-text {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    color: #0B1F3A;
+    white-space: nowrap;
+    line-height: 1.2;
+}
         .nav-logo-img {
             width: 100%;
             height: 100%;
@@ -562,14 +583,14 @@
         <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between">
             <!-- Brand / Logo -->
             <a href="index.html" class="flex items-center gap-3 group flex-shrink-0">
-                <div class="logo-img-wrapper">
-                    <img src="assets/navcalogo.png" alt="NAVCA Logo" class="nav-logo-img" />
-                </div>
-                <div class="flex flex-col justify-center leading-tight">
-                    <span class="font-serif font-bold text-sm xl:text-base text-navy-700 whitespace-nowrap">Nation Wide Vulnerability</span>
-                    <span class="font-serif font-bold text-sm xl:text-base text-navy-700 whitespace-nowrap">Concern Agency</span>
-                </div>
-            </a>
+    <div class="logo-img-wrapper">
+        <img src="assets/navcalogo.png" alt="NAVCA Logo" class="nav-logo-img" />
+    </div>
+    <div class="flex flex-col justify-center leading-tight">
+        <span class="brand-text text-sm xl:text-base">Nation Wide Vulnerability</span>
+        <span class="brand-text text-sm xl:text-base">Concern Agency (NAVCA)</span>
+    </div>
+</a>
 
             <!-- Desktop Nav Links -->
             <div class="hidden lg:flex items-center gap-5">
@@ -693,7 +714,7 @@
                 <div class="partner-logo flex items-center justify-center px-8 h-16 min-w-max"><span class="font-serif text-2xl font-bold text-navy-700">UN Women</span></div>
                 <div class="partner-logo flex items-center justify-center px-8 h-16 min-w-max"><span class="font-serif text-2xl font-bold text-navy-700 text-center leading-tight">World Food<br>Programme</span></div>
                 <div class="partner-logo flex items-center justify-center px-8 h-16 min-w-max">
-                    <span class="font-serif text-xl font-bold text-navy-700 text-center leading-tight">South Sudan Organization<br>with People with Disability</span>
+                    <span class="font-serif text-xl font-bold text-navy-700 text-center leading-tight">South Sudan Union<br>of People with Disabilities</span>
                 </div>
                 <div class="partner-logo flex items-center justify-center px-8 h-16 min-w-max"><span class="font-serif text-xl font-bold text-navy-700 text-center leading-tight">Relief & Rehab<br>Commission</span></div>
                 <div class="partner-logo flex items-center justify-center px-8 h-16 min-w-max"><span class="font-serif text-2xl font-bold text-navy-700 text-center leading-tight">Local NGO<br>Partners</span></div>
@@ -705,7 +726,7 @@
                 <div class="partner-logo flex items-center justify-center px-8 h-16 min-w-max"><span class="font-serif text-2xl font-bold text-navy-700">UN Women</span></div>
                 <div class="partner-logo flex items-center justify-center px-8 h-16 min-w-max"><span class="font-serif text-2xl font-bold text-navy-700 text-center leading-tight">World Food<br>Programme</span></div>
                 <div class="partner-logo flex items-center justify-center px-8 h-16 min-w-max">
-                    <span class="font-serif text-xl font-bold text-navy-700 text-center leading-tight">South Sudan Organization<br>with People with Disability</span>
+                    <span class="font-serif text-xl font-bold text-navy-700 text-center leading-tight">South Sudan Union<br>of People with Disability</span>
                 </div>
                 <div class="partner-logo flex items-center justify-center px-8 h-16 min-w-max"><span class="font-serif text-xl font-bold text-navy-700 text-center leading-tight">Relief & Rehab<br>Commission</span></div>
                 <div class="partner-logo flex items-center justify-center px-8 h-16 min-w-max"><span class="font-serif text-2xl font-bold text-navy-700 text-center leading-tight">Local NGO<br>Partners</span></div>
