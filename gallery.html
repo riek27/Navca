@@ -48,29 +48,9 @@
             theme: {
                 extend: {
                     colors: {
-                        navy: {
-                            50: '#f0f3f8',
-                            100: '#d9e0ec',
-                            500: '#1a3a6b',
-                            600: '#0f2a52',
-                            700: '#0B1F3A',
-                            800: '#081730',
-                            900: '#050f21',
-                        },
-                        forest: {
-                            50: '#e8f5e9',
-                            100: '#c8e6c9',
-                            500: '#388e3c',
-                            600: '#2E7D32',
-                            700: '#1b5e20',
-                        },
-                        gold: {
-                            50: '#fef9ec',
-                            100: '#fdefc7',
-                            400: '#f6c55a',
-                            500: '#F4B942',
-                            600: '#e0a020',
-                        },
+                        navy: { 50: '#f0f3f8', 100: '#d9e0ec', 500: '#1a3a6b', 600: '#0f2a52', 700: '#0B1F3A', 800: '#081730', 900: '#050f21' },
+                        forest: { 50: '#e8f5e9', 100: '#c8e6c9', 500: '#388e3c', 600: '#2E7D32', 700: '#1b5e20' },
+                        gold: { 50: '#fef9ec', 100: '#fdefc7', 400: '#f6c55a', 500: '#F4B942', 600: '#e0a020' },
                         charcoal: '#222222',
                     },
                     fontFamily: {
@@ -82,14 +62,8 @@
                         'fade-in': 'fadeIn 1s ease-out forwards',
                     },
                     keyframes: {
-                        fadeUp: {
-                            '0%': { opacity: '0', transform: 'translateY(30px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' },
-                        },
+                        fadeUp: { '0%': { opacity: '0', transform: 'translateY(30px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
                     },
                 }
             }
@@ -98,19 +72,10 @@
 
     <style>
         html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Inter', sans-serif;
-            color: #222;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
+        body { font-family: 'Inter', sans-serif; color: #222; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
         .font-serif { font-family: 'Playfair Display', serif; }
 
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1);
-        }
+        .reveal { opacity: 0; transform: translateY(40px); transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1); }
         .reveal.visible { opacity: 1; transform: translateY(0); }
         .reveal-delay-1 { transition-delay: 0.1s; }
         .reveal-delay-2 { transition-delay: 0.2s; }
@@ -126,68 +91,22 @@
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .glass {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-        }
-        .card-lift {
-            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-        }
+        .glass { background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.15); }
+        .card-lift { transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
         .card-lift:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(11, 31, 58, 0.25); }
         .btn-shine { position: relative; overflow: hidden; }
-        .btn-shine::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.6s;
-        }
+        .btn-shine::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent); transition: left 0.6s; }
         .btn-shine:hover::before { left: 100%; }
-        .section-divider {
-            width: 60px; height: 3px;
-            background: linear-gradient(90deg, #F4B942, #2E7D32);
-            border-radius: 2px;
-        }
+        .section-divider { width: 60px; height: 3px; background: linear-gradient(90deg, #F4B942, #2E7D32); border-radius: 2px; }
 
-        .logo-img-wrapper {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(244, 185, 66, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .nav-logo-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        .group:hover .logo-img-wrapper {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(244, 185, 66, 0.5);
-        }
+        .logo-img-wrapper { width: 80px; height: 80px; border-radius: 50%; overflow: hidden; box-shadow: 0 4px 16px rgba(244, 185, 66, 0.35); transition: transform 0.3s ease, box-shadow 0.3s ease; flex-shrink: 0; }
+        .nav-logo-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .group:hover .logo-img-wrapper { transform: scale(1.08); box-shadow: 0 6px 24px rgba(244, 185, 66, 0.55); }
 
-        .mobile-menu {
-            transform: translateX(100%);
-            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-        }
+        .mobile-menu { transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
         .mobile-menu.open { transform: translateX(0); }
-        .nav-link {
-            font-size: 0.75rem;
-            position: relative;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px; left: 0;
-            width: 0; height: 2px;
-            background: #F4B942;
-            transition: width 0.3s ease;
-        }
+        .nav-link { font-size: 0.75rem; position: relative; }
+        .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #F4B942; transition: width 0.3s ease; }
         .nav-link:hover::after { width: 100%; }
         .nav-link.active::after { width: 100%; background: #F4B942; }
         .nav-link.active { color: #F4B942; }
@@ -199,40 +118,25 @@
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
-        .gallery-item {
-            transition: all 0.4s ease;
-            opacity: 1;
-            transform: scale(1);
-        }
-        .gallery-item.hidden-filter {
-            opacity: 0;
-            transform: scale(0.95);
-            position: absolute;
-            pointer-events: none;
-        }
+        .gallery-item { transition: all 0.4s ease; opacity: 1; transform: scale(1); }
+        .gallery-item.hidden-filter { opacity: 0; transform: scale(0.95); position: absolute; pointer-events: none; }
 
-        .filter-btn {
-            transition: all 0.3s ease;
-        }
-        .filter-btn.active-filter {
-            background-color: #F4B942;
-            color: #0B1F3A;
-            border-color: #F4B942;
-        }
+        .filter-btn { transition: all 0.3s ease; }
+        .filter-btn.active-filter { background-color: #F4B942; color: #0B1F3A; border-color: #F4B942; }
     </style>
 </head>
 <body class="bg-white">
 
-<!-- NAVBAR (refined) -->
+<!-- NAVBAR (updated logo and name) -->
 <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm py-2.5 transition-all duration-500">
     <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between">
-        <a href="index.html" class="flex items-center gap-3 group">
+        <a href="index.html" class="flex items-center gap-3 group flex-shrink-0">
             <div class="logo-img-wrapper">
                 <img src="assets/navcalogo.png" alt="NAVCA Logo" class="nav-logo-img" />
             </div>
-            <div class="flex flex-col leading-tight">
-                <span class="font-serif font-bold text-lg text-navy-700 transition-colors">NAVCA</span>
-                <span class="text-[10px] tracking-widest text-navy-600/70 transition-colors uppercase">South Sudan</span>
+            <div class="flex flex-col justify-center leading-tight">
+                <span class="font-serif font-bold text-sm xl:text-base text-navy-700 whitespace-nowrap">Nation Wide Vulnerability</span>
+                <span class="font-serif font-bold text-sm xl:text-base text-navy-700 whitespace-nowrap">Concern Agency</span>
             </div>
         </a>
 
@@ -516,23 +420,86 @@
     </div>
 </section>
 
-<!-- ========== GEOGRAPHIC COVERAGE ========== -->
-<section class="py-20 md:py-28 bg-navy-700 relative overflow-hidden">
-    <div class="absolute inset-0 opacity-10"><img src="assets/navca2.jpeg" alt="" class="w-full h-full object-cover" /></div>
-    <div class="absolute inset-0 bg-gradient-to-br from-navy-800 via-navy-700 to-navy-900"></div>
-    <div class="relative max-w-7xl mx-auto px-6 lg:px-10">
+<!-- ========== GEOGRAPHIC COVERAGE (expanded with counties) ========== -->
+<section class="py-20 md:py-28 bg-navy-50/50 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
         <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-            <span class="inline-block px-4 py-1.5 bg-gold-500/20 text-gold-500 text-xs font-semibold tracking-widest uppercase rounded-full mb-5 border border-gold-500/30">Communities We Serve</span>
-            <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mb-6">Geographic <span class="gradient-text italic">Coverage</span></h2>
+            <span class="inline-block px-4 py-1.5 bg-gold-100 text-gold-600 text-xs font-semibold tracking-widest uppercase rounded-full mb-5">Communities We Serve</span>
+            <h2 class="font-serif text-4xl md:text-5xl font-bold text-navy-700 mb-6">Geographic <span class="italic text-forest-600">Coverage</span></h2>
             <div class="section-divider mx-auto mb-6"></div>
+            <p class="text-lg text-charcoal/70 leading-relaxed">Head Office: Jebel, Juba — with established presence across the most vulnerable regions.</p>
         </div>
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 reveal">
-            <div class="glass rounded-2xl p-4 text-center card-lift"><span class="font-serif text-xl font-bold text-gold-500">Unity State</span></div>
-            <div class="glass rounded-2xl p-4 text-center card-lift"><span class="font-serif text-xl font-bold text-gold-500">Jonglei State</span></div>
-            <div class="glass rounded-2xl p-4 text-center card-lift"><span class="font-serif text-xl font-bold text-gold-500">Upper Nile State</span></div>
-            <div class="glass rounded-2xl p-4 text-center card-lift"><span class="font-serif text-xl font-bold text-gold-500">Central Equatoria</span></div>
-            <div class="glass rounded-2xl p-4 text-center card-lift"><span class="font-serif text-xl font-bold text-gold-500">Eastern Equatoria</span></div>
-            <div class="glass rounded-2xl p-4 text-center card-lift"><span class="font-serif text-xl font-bold text-gold-500">Pibor AA</span></div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 reveal">
+            <!-- Unity State -->
+            <div class="bg-white rounded-2xl p-7 border border-navy-100/30 card-lift hover:border-gold-500/40 transition-all">
+                <h4 class="font-serif text-xl font-bold text-navy-700 mb-4">Unity State</h4>
+                <ul class="space-y-2 text-sm text-charcoal/70">
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-forest-600 rounded-full"></span> Leer</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-forest-600 rounded-full"></span> Mayendit</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-forest-600 rounded-full"></span> Koch</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-forest-600 rounded-full"></span> Guit</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-forest-600 rounded-full"></span> Panyijar</li>
+                </ul>
+            </div>
+            <!-- Jonglei State -->
+            <div class="bg-white rounded-2xl p-7 border border-navy-100/30 card-lift hover:border-gold-500/40 transition-all">
+                <h4 class="font-serif text-xl font-bold text-navy-700 mb-4">Jonglei State</h4>
+                <ul class="space-y-2 text-sm text-charcoal/70">
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-forest-600 rounded-full"></span> Uror</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-forest-600 rounded-full"></span> Duk</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-forest-600 rounded-full"></span> Fangak</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-forest-600 rounded-full"></span> Akobo</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-forest-600 rounded-full"></span> Ayod</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-forest-600 rounded-full"></span> Pigj</li>
+                </ul>
+            </div>
+            <!-- Upper Nile State -->
+            <div class="bg-white rounded-2xl p-7 border border-navy-100/30 card-lift hover:border-gold-500/40 transition-all">
+                <h4 class="font-serif text-xl font-bold text-navy-700 mb-4">Upper Nile State</h4>
+                <ul class="space-y-2 text-sm text-charcoal/70">
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-forest-600 rounded-full"></span> Renk</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-forest-600 rounded-full"></span> Maban</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-forest-600 rounded-full"></span> Ulang</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-forest-600 rounded-full"></span> Nasir</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-forest-600 rounded-full"></span> Maiwut</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-forest-600 rounded-full"></span> Panyikang</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-forest-600 rounded-full"></span> Longchuk</li>
+                </ul>
+            </div>
+            <!-- Central Equatoria -->
+            <div class="bg-white rounded-2xl p-7 border border-navy-100/30 card-lift hover:border-gold-500/40 transition-all">
+                <h4 class="font-serif text-xl font-bold text-navy-700 mb-4">Central Equatoria</h4>
+                <ul class="space-y-2 text-sm text-charcoal/70">
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-forest-600 rounded-full"></span> Terekeka</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-forest-600 rounded-full"></span> Lainya</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-forest-600 rounded-full"></span> Kajo Keji</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-forest-600 rounded-full"></span> Juba</li>
+                </ul>
+            </div>
+            <!-- Eastern Equatoria -->
+            <div class="bg-white rounded-2xl p-7 border border-navy-100/30 card-lift hover:border-gold-500/40 transition-all">
+                <h4 class="font-serif text-xl font-bold text-navy-700 mb-4">Eastern Equatoria</h4>
+                <ul class="space-y-2 text-sm text-charcoal/70">
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-forest-600 rounded-full"></span> Torit</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-forest-600 rounded-full"></span> Kopoeta</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-forest-600 rounded-full"></span> Budi</li>
+                </ul>
+            </div>
+            <!-- Western Equatoria -->
+            <div class="bg-white rounded-2xl p-7 border border-navy-100/30 card-lift hover:border-gold-500/40 transition-all">
+                <h4 class="font-serif text-xl font-bold text-navy-700 mb-4">Western Equatoria</h4>
+                <ul class="space-y-2 text-sm text-charcoal/70">
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-forest-600 rounded-full"></span> Mvolo</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-forest-600 rounded-full"></span> Mundari</li>
+                </ul>
+            </div>
+            <!-- Pibor Administrative Area -->
+            <div class="bg-gradient-to-br from-white to-gold-50 rounded-2xl p-7 border border-gold-500/30 card-lift hover:border-gold-500/60 transition-all">
+                <h4 class="font-serif text-xl font-bold text-navy-700 mb-4">Pibor Administrative Area</h4>
+                <ul class="space-y-2 text-sm text-charcoal/70">
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-gold-500 rounded-full"></span> Dedicated operations</li>
+                </ul>
+            </div>
         </div>
     </div>
 </section>
@@ -566,7 +533,7 @@
     </div>
 </section>
 
-<!-- ========== FOOTER ========== -->
+<!-- ========== FOOTER (only Facebook) ========== -->
 <footer class="bg-navy-800 text-white relative overflow-hidden">
     <div class="border-b border-white/10">
         <div class="max-w-7xl mx-auto px-6 lg:px-10 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
@@ -579,9 +546,9 @@
             <div class="flex items-center gap-3 mb-5"><div class="w-12 h-12 rounded-full bg-gradient-to-br from-gold-500 to-gold-600 flex items-center justify-center"><span class="font-serif font-bold text-navy-700 text-xl">N</span></div><div><div class="font-serif font-bold text-xl">NAVCA</div><div class="text-xs text-white/60 tracking-widest uppercase">South Sudan</div></div></div>
             <p class="text-white/70 leading-relaxed mb-6 max-w-md">Nation Wide Vulnerability Concern Agency — a registered South Sudanese National NGO (Reg. #4480) committed to empowering vulnerable communities through integrated, inclusive, and rights-based humanitarian and development interventions. Established 22nd September 2022.</p>
             <div class="flex gap-3">
-                <a href="#" aria-label="Facebook" class="w-10 h-10 rounded-full bg-white/10 hover:bg-gold-500 hover:text-navy-700 flex items-center justify-center transition-all"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
-                <a href="#" aria-label="LinkedIn" class="w-10 h-10 rounded-full bg-white/10 hover:bg-gold-500 hover:text-navy-700 flex items-center justify-center transition-all"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
-                <a href="#" aria-label="Instagram" class="w-10 h-10 rounded-full bg-white/10 hover:bg-gold-500 hover:text-navy-700 flex items-center justify-center transition-all"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg></a>
+                <a href="https://www.facebook.com/profile.php?id=61576371295961" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="w-10 h-10 rounded-full bg-white/10 hover:bg-gold-500 hover:text-navy-700 flex items-center justify-center transition-all">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+                </a>
             </div>
         </div>
         <div>
